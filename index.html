@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ximena Garrido | Backend Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 30px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+    }
+
+    .hero {
+      padding: 120px 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    h2 {
+      color: var(--accent);
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 30px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      color: var(--muted);
+      border-top: 1px solid #334155;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <div><strong>Ximena Garrido</strong></div>
+    <nav>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Backend Developer</h1>
+    <p>
+      Especializada en Python, Django y PostgreSQL.
+      Construyo aplicaciones web con arquitectura sólida,
+      modelado relacional y buenas prácticas.
+    </p>
+    <a href="#proyectos" class="btn">Ver proyectos</a>
+  </section>
+
+  <section id="proyectos">
+    <h2>Proyectos Destacados</h2>
+
+    <div class="card">
+      <h3>🌬️ Kau del Viento</h3>
+      <p>E-Commerce desarrollado con Django y PostgreSQL.</p>
+      <a href="https://github.com/xgarridoig-jpg/kau-del-viento" target="_blank">Ver repositorio</a>
+    </div>
+
+    <div class="card">
+      <h3>📚 Biblioca Yagan</h3>
+      <p>Sistema de gestión de biblioteca con CRUD completo.</p>
+      <a href="https://github.com/xgarridoig-jpg/biblioca-yagan" target="_blank">Ver repositorio</a>
+    </div>
+
+    <div class="card">
+      <h3>🐚 Chilwe</h3>
+      <p>Blog cultural con modelado relacional en PostgreSQL.</p>
+      <a href="https://github.com/xgarridoig-jpg/chilwe" target="_blank">Ver repositorio</a>
+    </div>
+
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Email: TU_CORREO_AQUI</p>
+    <p>GitHub: <a href="https://github.com/xgarridoig-jpg" target="_blank">xgarridoig-jpg</a></p>
+  </section>
+
+  <footer>
+    © 2026 Ximena Garrido
+  </footer>
+
+</div>
+
+</body>
+</html>
