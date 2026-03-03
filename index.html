@@ -1,390 +1,354 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ximena Garrido | Backend Engineer Austral</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ximena Garrido | Backend Engineer Austral</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;500&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;500&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&display=swap" rel="stylesheet">
 
-<style>
-:root {
-  --bg: #f2f1ed; /* Papel antiguo / Niebla austral */
-  --accent: #1e293b; /* Azul roca granito */
-  --text: #2a2a2a;
-  --muted: #6b7280;
-  --glacier: #e0f2fe; /* Azul hielo suave */
-  --forest: #164e63; /* Verde bosque profundo */
-  --border: rgba(0,0,0,0.08);
-  --radius: 24px;
-}
+    <style>
+        :root {
+            --bg: #f2f1ed; /* Papel antiguo / Niebla austral */
+            --accent: #1e293b; /* Azul roca granito */
+            --text: #2a2a2a;
+            --muted: #6b7280;
+            --glacier: #e0f2fe; /* Azul hielo suave */
+            --forest: #164e63; /* Verde bosque profundo */
+            --border: rgba(0,0,0,0.08);
+            --radius: 24px;
+        }
 
-/* --- IMPORTACIÓN DE FUENTES CORREGIDA --- */
-@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;500&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&display=swap');
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
-* { 
-  box-sizing: border-box; 
-  margin: 0; 
-  padding: 0; 
-}
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Albert Sans', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
 
-body {
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: 'Albert Sans', sans-serif; /* Fuente base cargada correctamente */
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  padding-bottom: 100px; /* Espacio para el footer */
-}
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
 
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 30px;
-}
+        /* --- NAVEGACIÓN (Corregida) --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 0;
+        }
 
-/* --- NAV (Minimal) --- */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px 0;
-  border-bottom: 1px solid var(--border); /* Línea sutil para separar */
-}
+        .logo {
+            font-family: 'Fraunces', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            text-transform: lowercase;
+            letter-spacing: -1px;
+            text-decoration: none; /* Elimina subrayado azul */
+            color: var(--accent);
+            transition: opacity 0.3s;
+        }
 
-.logo {
-  font-family: 'Fraunces', serif; /* Fuente serif cargada correctamente */
-  font-size: 1.4rem;
-  font-weight: 400;
-  text-transform: lowercase;
-  letter-spacing: -1px;
-  text-decoration: none;
-  color: var(--text);
-}
+        .logo:hover { opacity: 0.7; }
 
-.nav-links {
-  display: flex;
-  gap: 30px; /* Espaciado uniforme */
-}
+        .nav-links { display: flex; gap: 40px; }
 
-.nav-links a {
-  text-decoration: none;
-  color: var(--text);
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: opacity 0.3s;
-}
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: lowercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
 
-.nav-links a:hover {
-  opacity: 0.7;
-}
+        .nav-links a:hover { color: var(--forest); }
 
-/* --- HERO (Estilo Editorial) --- */
-.hero {
-  padding: 100px 0 120px;
-}
+        /* --- HERO --- */
+        .hero { padding: 100px 0 120px; }
 
-.hero .pre-title {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  color: var(--forest);
-  margin-bottom: 20px;
-  display: block;
-}
+        .hero .pre-title {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            color: var(--forest);
+            margin-bottom: 20px;
+            display: block;
+        }
 
-.hero h1 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(3rem, 8vw, 6rem);
-  line-height: 0.95;
-  font-weight: 400;
-  color: var(--accent);
-  letter-spacing: -3px;
-}
+        .hero h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 0.95;
+            font-weight: 400;
+            color: var(--accent);
+            letter-spacing: -3px;
+        }
 
-.hero h1 span {
-  display: block;
-  padding-left: 10%;
-  color: var(--muted);
-}
+        .hero h1 span {
+            display: block;
+            padding-left: 10%;
+            color: var(--muted);
+        }
 
-.hero-description {
-  margin-top: 60px;
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 60px;
-}
+        .hero-description {
+            margin-top: 60px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+        }
 
-.hero-description p {
-  font-size: 1.2rem;
-  color: var(--text);
-}
+        .hero-description p { font-size: 1.2rem; color: var(--text); }
 
-/* --- TRABAJOS SELECCIONADOS --- */
-.section-tag {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: var(--muted);
-  margin-bottom: 30px;
-  display: block;
-  margin-top: 80px; /* Espacio antes de la sección */
-}
+        /* --- PROYECTOS --- */
+        .section-tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--muted);
+            margin-bottom: 30px;
+            display: block;
+        }
 
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-}
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
 
-.project-card {
-  background: white;
-  border-radius: var(--radius);
-  padding: 45px;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 480px;
-  border: 1px solid var(--border);
-  position: relative;
-  overflow: hidden;
-}
+        .project-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 45px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 480px;
+            border: 1px solid var(--border);
+            position: relative;
+        }
 
-.project-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--forest);
-}
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--forest);
+        }
 
-/* --- ICONO MONTAÑA MINIMALISTA --- */
-.mountain-icon {
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  width: 40px;
-  height: 25px;
-  opacity: 0.15;
-  transition: 0.3s;
-}
+        /* Icono Montaña Minimalista */
+        .mountain-icon {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            width: 40px;
+            height: 25px;
+            opacity: 0.15;
+            transition: 0.3s;
+        }
 
-.mountain-icon::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-bottom: 25px solid var(--accent);
-}
+        .mountain-icon::before {
+            content: ""; position: absolute; bottom: 0; left: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 25px solid var(--accent);
+        }
 
-.mountain-icon::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 15px;
-  width: 0;
-  height: 0;
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  border-bottom: 15px solid var(--accent);
-  opacity: 0.7;
-}
+        .mountain-icon::after {
+            content: ""; position: absolute; bottom: 0; left: 15px;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 15px solid var(--accent);
+            opacity: 0.7;
+        }
 
-.project-card:hover .mountain-icon {
-  opacity: 0.8;
-  transform: scale(1.1);
-}
+        .project-card:hover .mountain-icon { opacity: 0.8; }
 
-.project-card h3 {
-  font-family: 'Fraunces', serif;
-  font-size: 2.8rem;
-  font-weight: 400;
-  line-height: 1;
-  margin-bottom: 20px;
-  margin-top: 30px;
-}
+        .project-card h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.8rem;
+            font-weight: 400;
+            line-height: 1;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
 
-.project-card p {
-  font-size: 1rem;
-  color: var(--muted);
-  max-width: 300px;
-}
+        .project-card p { font-size: 1rem; color: var(--muted); max-width: 280px; }
 
-.project-card .card-footer {
-  margin-top: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+        .arrow { font-size: 1.5rem; transition: transform 0.3s; }
+        .project-card:hover .arrow { transform: translateX(10px); }
 
-.arrow {
-  font-size: 1.5rem;
-  transition: transform 0.3s;
-}
+        /* --- SOBRE MÍ --- */
+        .about {
+            padding: 160px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
 
-.project-card:hover .arrow {
-  transform: translateX(10px);
-}
+        .about h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
 
-/* --- SOBRE MÍ --- */
-.about {
-  padding: 160px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
+        /* --- CONTACTO & FOOTER --- */
+        .footer-contact {
+            background: var(--accent);
+            color: var(--bg);
+            padding: 100px 30px 60px;
+            border-radius: 40px 40px 0 0;
+            text-align: center;
+        }
 
-.about h2 {
-  font-family: 'Fraunces', serif;
-  font-size: 3.5rem;
-  font-weight: 400;
-  max-width: 800px;
-  line-height: 1.1;
-  margin-bottom: 40px;
-}
+        .footer-contact h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 40px;
+        }
 
-.about p {
-  max-width: 600px;
-  font-size: 1.2rem;
-  color: var(--muted);
-}
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
 
-/* --- FOOTER/CONTACTO --- */
-.footer-contact {
-  background: var(--accent);
-  color: var(--bg);
-  padding: 100px 30px;
-  border-radius: 40px 40px 0 0;
-  text-align: center;
-  position: relative;
-  z-index: 10;
-}
+        .social-btn {
+            font-family: 'Fraunces', serif;
+            font-size: 1.2rem;
+            color: var(--bg);
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 15px 30px;
+            border-radius: 100px;
+            transition: 0.3s;
+        }
 
-.footer-contact h2 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  margin-bottom: 40px;
-}
+        .social-btn:hover {
+            background: var(--bg);
+            color: var(--accent);
+        }
 
-.email-btn {
-  font-family: 'Fraunces', serif;
-  font-size: 1.5rem;
-  color: var(--bg);
-  text-decoration: none;
-  border: 1px solid rgba(255,255,255,0.3);
-  padding: 20px 40px;
-  border-radius: 100px;
-  transition: 0.3s;
-  display: inline-block;
-}
+        .footer-credits {
+            font-size: 0.75rem;
+            opacity: 0.5;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 40px;
+        }
 
-.email-btn:hover {
-  background: var(--bg);
-  color: var(--accent);
-}
-
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-  .project-grid { grid-template-columns: 1fr; }
-  .hero-description { grid-template-columns: 1fr; gap: 20px; }
-  .hero h1 { font-size: 3.5rem; }
-  .nav-links { gap: 15px; }
-}
-</style>
+        @media (max-width: 768px) {
+            .project-grid { grid-template-columns: 1fr; }
+            .hero-description { grid-template-columns: 1fr; gap: 40px; }
+            .nav-links { gap: 20px; }
+        }
+    </style>
 </head>
 
 <body>
 
 <div class="container">
-  <nav>
-    <a href="#" class="logo">ximena garrido</a>
-    <div class="nav-links">
-      <a href="#work">proyectos</a>
-      <a href="#about">bio</a>
-      <a href="mailto:tu_correo@ejemplo.com">hola</a>
-    </div>
-  </nav>
+    <nav>
+        <a href="#" class="logo">ximena garrido</a>
+        <div class="nav-links">
+            <a href="#work">proyectos</a>
+            <a href="#about">bio</a>
+            <a href="mailto:tu_correo@ejemplo.com">contacto</a>
+        </div>
+    </nav>
 
-  <section class="hero">
-    <span class="pre-title">Desde el sur del mundo</span>
-    <h1>Backend Developer <span>& Architect</span></h1>
+    <section class="hero">
+        <span class="pre-title">Desde el sur del mundo</span>
+        <h1>Backend Developer <span>& Architect</span></h1>
+        
+        <div class="hero-description">
+            <p>Construyo sistemas robustos con la solidez de una roca granítica y la fluidez de un canal patagónico. Especializada en Python y ecosistemas de datos.</p>
+            <p style="color: var(--muted); font-size: 1rem;">Basada en Magallanes, Chile. Enfocada en clean code y arquitecturas escalables.</p>
+        </div>
+    </section>
+
+    <span class="section-tag" id="work">Trabajos seleccionados</span>
     
-    <div class="hero-description">
-      <p>Construyo sistemas robustos con la solidez de una roca granítica y la fluidez de un canal patagónico. Especializada en Python y ecosistemas de datos.</p>
-      <p style="color: var(--muted); font-size: 1rem;">Basada en Magallanes, Chile. Enfocada en clean code y arquitecturas escalables.</p>
-    </div>
-  </section>
+    <section class="project-grid">
+        <a href="https://github.com/xgarridoig-jpg/kau-del-viento" class="project-card">
+            <div class="mountain-icon"></div>
+            <div>
+                <h3>Kau del <br>Viento</h3>
+                <p>E-commerce inspirado en el refugio austral. Arquitectura Django con PostgreSQL.</p>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                <span class="section-tag" style="margin:0">01 / Python</span>
+                <span class="arrow">→</span>
+            </div>
+        </a>
 
-  <span class="section-tag" id="work">Trabajos seleccionados</span>
-  
-  <section class="project-grid">
-    <a href="https://github.com/xgarridoig-jpg/kau-del-viento" class="project-card">
-      <div class="mountain-icon"></div>
-      <div>
-        <h3>Kau del <br>Viento</h3>
-        <p>E-commerce inspirado en el refugio austral. Arquitectura Django con PostgreSQL.</p>
-      </div>
-      <div class="footer">
-        <span class="section-tag" style="margin:0">01 / Python</span>
-        <span class="arrow">→</span>
-      </div>
-    </a>
+        <a href="https://github.com/xgarridoig-jpg/biblioca-yagan" class="project-card">
+            <div class="mountain-icon"></div>
+            <div>
+                <h3>Biblioca <br>Yagan</h3>
+                <p>Sistema CRUD de gestión con herencia de la cultura canoera.</p>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                <span class="section-tag" style="margin:0">02 / Logic</span>
+                <span class="arrow">→</span>
+            </div>
+        </a>
 
-    <a href="https://github.com/xgarridoig-jpg/biblioca-yagan" class="project-card">
-      <div class="mountain-icon"></div>
-      <div>
-        <h3>Biblioca <br>Yagan</h3>
-        <p>Sistema CRUD de gestión con herencia de la cultura canoera.</p>
-      </div>
-      <div class="footer">
-        <span class="section-tag" style="margin:0">02 / Logic</span>
-        <span class="arrow">→</span>
-      </div>
-    </a>
+        <a href="https://github.com/xgarridoig-jpg/chilwe" class="project-card">
+            <div class="mountain-icon"></div>
+            <div>
+                <h3>Chilwe <br>Blog</h3>
+                <p>Plataforma de contenido dinámico con modelado relacional avanzado.</p>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                <span class="section-tag" style="margin:0">03 / Database</span>
+                <span class="arrow">→</span>
+            </div>
+        </a>
 
-    <a href="https://github.com/xgarridoig-jpg/chilwe" class="project-card">
-      <div class="mountain-icon"></div>
-      <div>
-        <h3>Chilwe <br>Blog</h3>
-        <p>Plataforma de contenido dinámico con modelado relacional avanzado.</p>
-      </div>
-      <div class="footer">
-        <span class="section-tag" style="margin:0">03 / Database</span>
-        <span class="arrow">→</span>
-      </div>
-    </a>
+        <div class="project-card" style="background: var(--glacier); border: none;">
+            <div class="mountain-icon" style="opacity: 0.3;"></div>
+            <div>
+                <h3>Próximos <br>Sistemas</h3>
+                <p>Buscando construir infraestructuras que perduren en el tiempo.</p>
+            </div>
+            <span class="section-tag" style="margin:0">04 / Colaborar</span>
+        </div>
+    </section>
 
-    <div class="project-card" style="background: var(--glacier); border-color: transparent;">
-      <div class="mountain-icon" style="opacity: 0.4"></div>
-      <div>
-        <h3>Tu Próximo <br>Desafío</h3>
-        <p>Buscando construir infraestructuras que perduren en el tiempo.</p>
-      </div>
-      <div class="footer">
-        <span class="section-tag" style="margin:0">04 / Colaborar</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="about" id="about">
-    <h2>Escribo código que respira calma y estructura.</h2>
-    <p>Como las capas de un glaciar, el backend debe ser sólido y transparente. Mi proceso combina la técnica moderna con la paciencia artesana del sur.</p>
-  </section>
+    <section class="about" id="about">
+        <h2>Escribo código que respira calma y estructura.</h2>
+        <p>Como las capas de un glaciar, el backend debe ser sólido y transparente. Mi proceso combina la técnica moderna con la paciencia artesana del sur.</p>
+    </section>
 </div>
 
 <section class="footer-contact">
-  <div class="container">
-    <h2>¿Construimos algo <br>desde el fin del mundo?</h2>
-    <a href="mailto:tu_correo@ejemplo.com" class="email-btn">Hablemos aquí</a>
-    <div style="margin-top: 60px; font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px;">
-      MAGALLANES • CHILOÉ • PATAGONIA • 2026
+    <div class="container">
+        <h2>¿Construimos algo <br>desde el fin del mundo?</h2>
+        
+        <div class="social-links">
+            <a href="mailto:tu_correo@ejemplo.com" class="social-btn">Email</a>
+            <a href="https://linkedin.com/in/TU_LINKEDIN" class="social-btn" target="_blank">LinkedIn</a>
+            <a href="https://github.com/xgarridoig-jpg" class="social-btn" target="_blank">GitHub</a>
+        </div>
+
+        <div class="footer-credits">
+            Construido con paciencia desde el sur por Ximena Garrido • 2026
+        </div>
     </div>
-  </div>
 </section>
 
 </body>
