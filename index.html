@@ -3,302 +3,265 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ximena Garrido | Backend Developer</title>
+<title>Ximena Garrido | Backend Engineer</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg: #030712;
-  --card: #111827;
-  --text: #f9fafb;
-  --muted: #9ca3af;
-  --accent: #38bdf8;
-  --accent-glow: rgba(56, 189, 248, 0.3);
-  --gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  --bg: #0a0a0a;
+  --surface: #141414;
+  --border: #262626;
+  --accent: #10b981; /* Verde esmeralda tipo terminal */
+  --text-main: #ffffff;
+  --text-dim: #a3a3a3;
+  --font-mono: 'Fira Code', monospace;
+  --font-sans: 'Space Grotesk', sans-serif;
 }
 
-* { box-sizing: border-box; scroll-behavior: smooth; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  margin: 0;
-  font-family: 'Plus Jakarta Sans', sans-serif;
   background-color: var(--bg);
-  background-image: 
-    radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(129, 140, 248, 0.1) 0px, transparent 50%);
-  color: var(--text);
+  color: var(--text-main);
+  font-family: var(--font-sans);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 .container {
-  width: 90%;
-  max-width: 1000px;
-  margin: auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
-/* --- HEADER --- */
-header {
+/* --- BACKGROUND DECORATION --- */
+.grid-bg {
   position: fixed;
-  top: 0; width: 100%; z-index: 1000;
-  backdrop-filter: blur(12px);
-  background: rgba(3, 7, 18, 0.8);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 15px 0;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: radial-gradient(var(--border) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -1;
+  mask-image: radial-gradient(circle at center, black, transparent 80%);
 }
 
-nav { display: flex; justify-content: space-between; align-items: center; }
-
-.logo {
-  font-weight: 800;
-  font-size: 1.2rem;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* --- NAVIGATION --- */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
 }
 
 nav a {
-  color: var(--muted);
+  color: var(--text-dim);
   text-decoration: none;
-  margin-left: 25px;
-  font-weight: 500;
-  transition: .3s;
-  font-size: 0.9rem;
+  margin-left: 30px;
+  transition: 0.3s;
 }
 
 nav a:hover { color: var(--accent); }
 
 /* --- HERO --- */
 .hero {
-  padding: 180px 0 100px 0;
-  text-align: center;
-  animation: fadeIn 1s ease-out;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.hero .label {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: 1.1rem;
+  margin-bottom: 20px;
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
-  margin: 0;
-  line-height: 1.1;
-  font-weight: 800;
-  letter-spacing: -2px;
-}
-
-.hero .gradient-text {
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -3px;
+  margin-bottom: 30px;
 }
 
 .hero p {
-  max-width: 600px;
-  margin: 25px auto;
-  color: var(--muted);
-  font-size: 1.2rem;
+  max-width: 500px;
+  font-size: 1.25rem;
+  color: var(--text-dim);
+  border-left: 2px solid var(--accent);
+  padding-left: 20px;
 }
 
-.btn {
-  display: inline-block;
-  padding: 14px 32px;
-  background: var(--text);
-  color: var(--bg);
-  border-radius: 50px;
+/* --- TERMINAL SECTION --- */
+.terminal {
+  background: #1a1a1a;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  padding: 20px;
+  margin: 60px 0;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.terminal-header {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.terminal-body span { color: var(--accent); }
+
+/* --- PROJECTS --- */
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 60px;
+  font-weight: 700;
+}
+
+.projects-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.project-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 40px;
+  transition: 0.4s;
+}
+
+.project-card:hover {
+  border-color: var(--accent);
+  transform: translateX(10px);
+}
+
+.project-card .year {
+  font-family: var(--font-mono);
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+.project-card h3 {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+.project-card p {
+  color: var(--text-dim);
+  font-size: 1rem;
+}
+
+/* --- CONTACT --- */
+.contact-footer {
+  padding: 150px 0 100px;
+  text-align: center;
+}
+
+.contact-btn {
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: var(--text-main);
   text-decoration: none;
   font-weight: 700;
-  transition: .3s;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transition: 0.3s;
 }
 
-.btn:hover {
-  transform: scale(1.05);
-  background: var(--accent);
-  box-shadow: 0 0 20px var(--accent-glow);
-}
-
-/* --- SECCIONES --- */
-section { padding: 80px 0; }
-
-h2 {
-  font-size: 2rem;
-  margin-bottom: 40px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-h2::after {
-  content: "";
-  height: 1px;
-  flex-grow: 1;
-  background: rgba(255,255,255,0.1);
-}
-
-/* --- GRID PROYECTOS --- */
-.grid {
-  display: grid;
-  gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-
-.card {
-  background: var(--card);
-  padding: 30px;
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.05);
-  transition: all .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  position: relative;
-  overflow: hidden;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  border-color: var(--accent);
-  background: rgba(17, 24, 39, 0.8);
-}
-
-.card h3 { margin-top: 0; font-size: 1.4rem; color: var(--accent); }
-
-.tag {
-  display: inline-block;
-  font-size: 0.7rem;
-  padding: 4px 10px;
-  background: rgba(56, 189, 248, 0.1);
+.contact-btn:hover {
   color: var(--accent);
-  border-radius: 5px;
-  margin-right: 5px;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  -webkit-text-stroke: 1px var(--accent);
 }
 
-.repo-link {
-  display: inline-block;
-  margin-top: 20px;
-  color: var(--text);
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 600;
-  border-bottom: 1px solid var(--accent);
-}
-
-/* --- PROCESO --- */
-.process-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.process-item {
-  background: rgba(255,255,255,0.03);
-  padding: 20px;
-  border-radius: 12px;
-  font-size: 0.95rem;
-}
-
-/* --- FOOTER --- */
-footer {
-  padding: 80px 0 40px;
-  text-align: center;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-@media(max-width: 600px) {
-  nav div { display: none; } /* Simplificación para móvil */
-  .hero { padding: 120px 0 60px 0; }
+@media (max-width: 768px) {
+  .projects-list { grid-template-columns: 1fr; }
+  .hero h1 { letter-spacing: -1px; }
+  .container { padding: 0 20px; }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="container">
-    <nav>
-      <div class="logo">XG.DEV</div>
-      <div>
-        <a href="#sobre">Bio</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#contacto">Contacto</a>
-      </div>
-    </nav>
-  </div>
-</header>
+<div class="grid-bg"></div>
 
 <div class="container">
+  <nav>
+    <div class="logo">XG_</div>
+    <div>
+      <a href="#work">Proyectos</a>
+      <a href="https://github.com/xgarridoig-jpg">GitHub</a>
+      <a href="mailto:tu_correo@ejemplo.com">Email</a>
+    </div>
+  </nav>
 
   <section class="hero">
-    <h1>Soy Ximena, <br><span class="gradient-text">Backend Developer</span></h1>
-    <p>
-      Construyo infraestructuras sólidas y escalables. Especialista en orquestar datos con Python, Django y arquitecturas relacionales.
-    </p>
-    <a href="#proyectos" class="btn">Explorar Proyectos</a>
+    <div class="label">// Backend Engineer</div>
+    <h1>Ximena <br>Garrido.</h1>
+    <p>Diseño arquitecturas de datos robustas y lógica de servidor eficiente con Python y Django.</p>
   </section>
 
-  <section id="sobre">
-    <h2>Sobre mi enfoque</h2>
-    <p style="font-size: 1.2rem; max-width: 800px; color: var(--muted);">
-      No solo escribo código; diseño sistemas. Mi flujo de trabajo prioriza la <strong>seguridad</strong>, la <strong>escalabilidad</strong> y la limpieza arquitectónica, asegurando que cada migración y cada consulta al ORM sea óptima.
-    </p>
-  </section>
+  <div class="terminal">
+    <div class="terminal-header">
+      <div class="dot red"></div>
+      <div class="dot yellow"></div>
+      <div class="dot green"></div>
+    </div>
+    <div class="terminal-body">
+      <p><span>$</span> whoami</p>
+      <p>Ximena Garrido: Apasionada por el modelado relacional y la optimización de queries.</p>
+      <p><span>$</span> stack --current</p>
+      <p>Python, Django, PostgreSQL, Git, Linux VPS.</p>
+      <p><span>$</span> status</p>
+      <p>Construyendo soluciones escalables desde el núcleo... <blink>_</blink></p>
+    </div>
+  </div>
 
-  <section id="proyectos">
-    <h2>Proyectos seleccionados</h2>
-    <div class="grid">
+  <section id="work">
+    <h2 class="section-title">Proyectos</h2>
+    <div class="projects-list">
 
-      <div class="card">
-        <span class="tag">Django + PostgreSQL</span>
-        <h3>🌬️ Kau del Viento</h3>
-        <p>E-commerce de alto rendimiento con gestión de inventario y pasarela de pagos integrada.</p>
-        <a href="https://github.com/xgarridoig-jpg/kau-del-viento" class="repo-link" target="_blank">Ver Código →</a>
-      </div>
+      <a href="https://github.com/xgarridoig-jpg/kau-del-viento" class="project-card" target="_blank">
+        <div class="year">2026 / Django + PostgreSQL</div>
+        <h3>Kau del Viento</h3>
+        <p>E-commerce con arquitectura desacoplada y gestión de transacciones críticas.</p>
+      </a>
 
-      <div class="card">
-        <span class="tag">Python + CRUD</span>
-        <h3>📚 Biblioca Yagan</h3>
-        <p>Sistema de gestión bibliotecaria con lógica compleja de préstamos y usuarios.</p>
-        <a href="https://github.com/xgarridoig-jpg/biblioca-yagan" class="repo-link" target="_blank">Ver Código →</a>
-      </div>
+      <a href="https://github.com/xgarridoig-jpg/biblioca-yagan" class="project-card" target="_blank">
+        <div class="year">2026 / Python CRUD</div>
+        <h3>Biblioca Yagan</h3>
+        <p>Lógica de negocio aplicada al control de inventario y flujos de usuarios.</p>
+      </a>
 
-      <div class="card">
-        <span class="tag">Relational Modeling</span>
-        <h3>🐚 Chilwe</h3>
-        <p>Plataforma cultural optimizada para el manejo de contenidos dinámicos y relaciones M2M.</p>
-        <a href="https://github.com/xgarridoig-jpg/chilwe" class="repo-link" target="_blank">Ver Código →</a>
+      <a href="https://github.com/xgarridoig-jpg/chilwe" class="project-card" target="_blank">
+        <div class="year">2025 / Web Engine</div>
+        <h3>Chilwe</h3>
+        <p>Motor de blog cultural centrado en el rendimiento y la jerarquía de datos.</p>
+      </a>
+
+      <div class="project-card" style="border: 1px dashed var(--border); display: flex; align-items: center; justify-content: center;">
+        <p>Próximamente...</p>
       </div>
 
     </div>
   </section>
 
-  <section id="proceso">
-    <h2>Stack & Buenas Prácticas</h2>
-    <div class="process-list">
-      <div class="process-item">🚀 <b>Git Flow:</b> Commits semánticos y control de versiones.</div>
-      <div class="process-item">📦 <b>Modularidad:</b> Arquitectura basada en Apps independientes.</div>
-      <div class="process-item">🗄️ <b>BBDD:</b> Modelado avanzado en PostgreSQL.</div>
-      <div class="process-item">🛡️ <b>Seguridad:</b> Middlewares y control de acceso robusto.</div>
-    </div>
+  <section class="contact-footer">
+    <p style="color: var(--accent); font-family: var(--font-mono); margin-bottom: 20px;">¿Tienes un proyecto en mente?</p>
+    <a href="mailto:tu_correo@ejemplo.com" class="contact-btn">Hablemos.</a>
   </section>
 
-  <section id="contacto" style="text-align: center;">
-    <h2>¿Hablamos?</h2>
-    <p>Estoy abierta a nuevas oportunidades y colaboraciones técnicas.</p>
-    <p style="font-size: 1.5rem; font-weight: 800; margin: 20px 0;">ximena.garrido@email.com</p>
-    <div style="margin-top: 30px;">
-        <a href="https://github.com/xgarridoig-jpg" style="color: var(--accent); text-decoration: none;">GitHub</a> • 
-        <a href="#" style="color: var(--accent); text-decoration: none;">LinkedIn</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2026 Diseñado con precisión por Ximena Garrido</p>
+  <footer style="padding-bottom: 40px; color: var(--text-dim); font-family: var(--font-mono); font-size: 0.8rem; text-align: center;">
+    &copy; 2026 XIMENA_GARRIDO.SYS - ALL RIGHTS RESERVED
   </footer>
-
 </div>
 
 </body>
