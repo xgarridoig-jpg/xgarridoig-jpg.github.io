@@ -6,124 +6,211 @@
 <title>Ximena Garrido | Backend Developer</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --bg:#0b1220;
-  --card:#121c2f;
-  --text:#eaf0ff;
-  --muted:#94a3b8;
-  --accent:#38bdf8;
+:root {
+  --bg: #030712;
+  --card: #111827;
+  --text: #f9fafb;
+  --muted: #9ca3af;
+  --accent: #38bdf8;
+  --accent-glow: rgba(56, 189, 248, 0.3);
+  --gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
 }
 
-*{box-sizing:border-box}
+* { box-sizing: border-box; scroll-behavior: smooth; }
 
-body{
-  margin:0;
-  font-family:'Inter',sans-serif;
-  background:
-    radial-gradient(circle at 20% 0%, rgba(56,189,248,.15), transparent 40%),
-    radial-gradient(circle at 80% 0%, rgba(99,102,241,.12), transparent 40%),
-    var(--bg);
-  color:var(--text);
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(129, 140, 248, 0.1) 0px, transparent 50%);
+  color: var(--text);
+  line-height: 1.6;
 }
 
-.container{
-  width:90%;
-  max-width:1100px;
-  margin:auto;
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
 }
 
-header{
-  position:sticky;
-  top:0;
-  backdrop-filter:blur(10px);
-  background:rgba(11,18,32,.7);
-  border-bottom:1px solid rgba(255,255,255,.08);
-  padding:20px 0;
+/* --- HEADER --- */
+header {
+  position: fixed;
+  top: 0; width: 100%; z-index: 1000;
+  backdrop-filter: blur(12px);
+  background: rgba(3, 7, 18, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 15px 0;
 }
 
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+nav { display: flex; justify-content: space-between; align-items: center; }
+
+.logo {
+  font-weight: 800;
+  font-size: 1.2rem;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-nav a{
-  color:var(--text);
-  text-decoration:none;
-  margin-left:20px;
-  font-weight:600;
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 25px;
+  font-weight: 500;
+  transition: .3s;
+  font-size: 0.9rem;
 }
 
-.hero{
-  padding:140px 0 100px 0;
+nav a:hover { color: var(--accent); }
+
+/* --- HERO --- */
+.hero {
+  padding: 180px 0 100px 0;
+  text-align: center;
+  animation: fadeIn 1s ease-out;
 }
 
-.hero h1{
-  font-size:3.2rem;
-  margin-bottom:20px;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.hero p{
-  max-width:600px;
-  color:var(--muted);
-  font-size:1.1rem;
+.hero h1 {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  margin: 0;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -2px;
 }
 
-.btn{
-  display:inline-block;
-  margin-top:25px;
-  padding:12px 26px;
-  background:var(--accent);
-  color:#000;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:600;
-  transition:.3s;
+.hero .gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.btn:hover{
-  transform:translateY(-3px);
+.hero p {
+  max-width: 600px;
+  margin: 25px auto;
+  color: var(--muted);
+  font-size: 1.2rem;
 }
 
-section{
-  padding:100px 0;
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--text);
+  color: var(--bg);
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: .3s;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-h2{
-  color:var(--accent);
-  margin-bottom:40px;
+.btn:hover {
+  transform: scale(1.05);
+  background: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
 }
 
-.grid{
-  display:grid;
-  gap:25px;
+/* --- SECCIONES --- */
+section { padding: 80px 0; }
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-@media(min-width:900px){
-  .grid{grid-template-columns:repeat(3,1fr);}
+h2::after {
+  content: "";
+  height: 1px;
+  flex-grow: 1;
+  background: rgba(255,255,255,0.1);
 }
 
-.card{
-  background:var(--card);
-  padding:25px;
-  border-radius:14px;
-  transition:.3s;
-  border:1px solid rgba(255,255,255,.05);
+/* --- GRID PROYECTOS --- */
+.grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-.card:hover{
-  transform:translateY(-8px);
-  border:1px solid var(--accent);
+.card {
+  background: var(--card);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: all .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
 }
 
-footer{
-  padding:60px 0;
-  text-align:center;
-  color:var(--muted);
-  border-top:1px solid rgba(255,255,255,.08);
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent);
+  background: rgba(17, 24, 39, 0.8);
+}
+
+.card h3 { margin-top: 0; font-size: 1.4rem; color: var(--accent); }
+
+.tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--accent);
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.repo-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--accent);
+}
+
+/* --- PROCESO --- */
+.process-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.process-item {
+  background: rgba(255,255,255,0.03);
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+
+/* --- FOOTER --- */
+footer {
+  padding: 80px 0 40px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media(max-width: 600px) {
+  nav div { display: none; } /* Simplificación para móvil */
+  .hero { padding: 120px 0 60px 0; }
 }
 </style>
 </head>
@@ -131,85 +218,86 @@ footer{
 <body>
 
 <header>
-<div class="container">
-  <nav>
-    <strong>Ximena Garrido</strong>
-    <div>
-      <a href="#sobre">Sobre mí</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#proceso">Proceso</a>
-      <a href="#contacto">Contacto</a>
-    </div>
-  </nav>
-</div>
+  <div class="container">
+    <nav>
+      <div class="logo">XG.DEV</div>
+      <div>
+        <a href="#sobre">Bio</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
+  </div>
 </header>
 
 <div class="container">
 
-<section class="hero">
-  <h1>Backend Developer</h1>
-  <p>
-    Especializada en Python, Django y PostgreSQL.
-    Diseño aplicaciones web con arquitectura clara,
-    modelado relacional sólido y buenas prácticas.
-  </p>
-  <a href="#proyectos" class="btn">Ver proyectos</a>
-</section>
+  <section class="hero">
+    <h1>Soy Ximena, <br><span class="gradient-text">Backend Developer</span></h1>
+    <p>
+      Construyo infraestructuras sólidas y escalables. Especialista en orquestar datos con Python, Django y arquitecturas relacionales.
+    </p>
+    <a href="#proyectos" class="btn">Explorar Proyectos</a>
+  </section>
 
-<section id="sobre">
-  <h2>Sobre mí</h2>
-  <p>
-    Me enfoco en el desarrollo backend utilizando Django y PostgreSQL,
-    aplicando buenas prácticas como separación por apps,
-    uso de migraciones versionadas y control de acceso.
-  </p>
-</section>
+  <section id="sobre">
+    <h2>Sobre mi enfoque</h2>
+    <p style="font-size: 1.2rem; max-width: 800px; color: var(--muted);">
+      No solo escribo código; diseño sistemas. Mi flujo de trabajo prioriza la <strong>seguridad</strong>, la <strong>escalabilidad</strong> y la limpieza arquitectónica, asegurando que cada migración y cada consulta al ORM sea óptima.
+    </p>
+  </section>
 
-<section id="proyectos">
-  <h2>Proyectos Destacados</h2>
-  <div class="grid">
+  <section id="proyectos">
+    <h2>Proyectos seleccionados</h2>
+    <div class="grid">
 
-    <div class="card">
-      <h3>🌬️ Kau del Viento</h3>
-      <p>E-Commerce con Django y PostgreSQL.</p>
-      <a href="https://github.com/xgarridoig-jpg/kau-del-viento" target="_blank">Repositorio</a>
+      <div class="card">
+        <span class="tag">Django + PostgreSQL</span>
+        <h3>🌬️ Kau del Viento</h3>
+        <p>E-commerce de alto rendimiento con gestión de inventario y pasarela de pagos integrada.</p>
+        <a href="https://github.com/xgarridoig-jpg/kau-del-viento" class="repo-link" target="_blank">Ver Código →</a>
+      </div>
+
+      <div class="card">
+        <span class="tag">Python + CRUD</span>
+        <h3>📚 Biblioca Yagan</h3>
+        <p>Sistema de gestión bibliotecaria con lógica compleja de préstamos y usuarios.</p>
+        <a href="https://github.com/xgarridoig-jpg/biblioca-yagan" class="repo-link" target="_blank">Ver Código →</a>
+      </div>
+
+      <div class="card">
+        <span class="tag">Relational Modeling</span>
+        <h3>🐚 Chilwe</h3>
+        <p>Plataforma cultural optimizada para el manejo de contenidos dinámicos y relaciones M2M.</p>
+        <a href="https://github.com/xgarridoig-jpg/chilwe" class="repo-link" target="_blank">Ver Código →</a>
+      </div>
+
     </div>
+  </section>
 
-    <div class="card">
-      <h3>📚 Biblioca Yagan</h3>
-      <p>Sistema CRUD de biblioteca.</p>
-      <a href="https://github.com/xgarridoig-jpg/biblioca-yagan" target="_blank">Repositorio</a>
+  <section id="proceso">
+    <h2>Stack & Buenas Prácticas</h2>
+    <div class="process-list">
+      <div class="process-item">🚀 <b>Git Flow:</b> Commits semánticos y control de versiones.</div>
+      <div class="process-item">📦 <b>Modularidad:</b> Arquitectura basada en Apps independientes.</div>
+      <div class="process-item">🗄️ <b>BBDD:</b> Modelado avanzado en PostgreSQL.</div>
+      <div class="process-item">🛡️ <b>Seguridad:</b> Middlewares y control de acceso robusto.</div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>🐚 Chilwe</h3>
-      <p>Blog cultural con modelado relacional.</p>
-      <a href="https://github.com/xgarridoig-jpg/chilwe" target="_blank">Repositorio</a>
+  <section id="contacto" style="text-align: center;">
+    <h2>¿Hablamos?</h2>
+    <p>Estoy abierta a nuevas oportunidades y colaboraciones técnicas.</p>
+    <p style="font-size: 1.5rem; font-weight: 800; margin: 20px 0;">ximena.garrido@email.com</p>
+    <div style="margin-top: 30px;">
+        <a href="https://github.com/xgarridoig-jpg" style="color: var(--accent); text-decoration: none;">GitHub</a> • 
+        <a href="#" style="color: var(--accent); text-decoration: none;">LinkedIn</a>
     </div>
+  </section>
 
-  </div>
-</section>
-
-<section id="proceso">
-  <h2>Proceso y Buenas Prácticas</h2>
-  <ul>
-    <li>Versionado con Git y commits progresivos</li>
-    <li>Organización modular por apps</li>
-    <li>Uso de PostgreSQL como base de datos</li>
-    <li>Aplicación del ORM de Django</li>
-    <li>Diseño visual coherente y jerárquico</li>
-  </ul>
-</section>
-
-<section id="contacto">
-  <h2>Contacto</h2>
-  <p>Email: TU_CORREO_AQUI</p>
-  <p>GitHub: <a href="https://github.com/xgarridoig-jpg" target="_blank">xgarridoig-jpg</a></p>
-</section>
-
-<footer>
-© 2026 Ximena Garrido
-</footer>
+  <footer>
+    <p>© 2026 Diseñado con precisión por Ximena Garrido</p>
+  </footer>
 
 </div>
 
