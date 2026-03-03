@@ -1,162 +1,215 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ximena Garrido | Backend Developer</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ximena Garrido | Backend Developer</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg: #0f172a;
-      --card: #1e293b;
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
-    }
+<style>
+:root{
+  --bg:#0b1220;
+  --card:#121c2f;
+  --text:#eaf0ff;
+  --muted:#94a3b8;
+  --accent:#38bdf8;
+}
 
-    * { box-sizing: border-box; }
+*{box-sizing:border-box}
 
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(56,189,248,.15), transparent 40%),
+    radial-gradient(circle at 80% 0%, rgba(99,102,241,.12), transparent 40%),
+    var(--bg);
+  color:var(--text);
+}
 
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
+}
 
-    header {
-      padding: 30px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+header{
+  position:sticky;
+  top:0;
+  backdrop-filter:blur(10px);
+  background:rgba(11,18,32,.7);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  padding:20px 0;
+}
 
-    header a {
-      color: var(--text);
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: 600;
-    }
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-    .hero {
-      padding: 120px 0;
-      text-align: center;
-    }
+nav a{
+  color:var(--text);
+  text-decoration:none;
+  margin-left:20px;
+  font-weight:600;
+}
 
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
+.hero{
+  padding:140px 0 100px 0;
+}
 
-    .hero p {
-      font-size: 1.2rem;
-      color: var(--muted);
-      max-width: 600px;
-      margin: 0 auto 30px auto;
-    }
+.hero h1{
+  font-size:3.2rem;
+  margin-bottom:20px;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 12px 28px;
-      border-radius: 8px;
-      background: var(--accent);
-      color: #000;
-      text-decoration: none;
-      font-weight: 600;
-    }
+.hero p{
+  max-width:600px;
+  color:var(--muted);
+  font-size:1.1rem;
+}
 
-    section {
-      padding: 100px 0;
-    }
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:12px 26px;
+  background:var(--accent);
+  color:#000;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
+}
 
-    h2 {
-      color: var(--accent);
-      margin-bottom: 40px;
-    }
+.btn:hover{
+  transform:translateY(-3px);
+}
 
-    .card {
-      background: var(--card);
-      padding: 30px;
-      border-radius: 12px;
-      margin-bottom: 30px;
-      transition: transform 0.3s ease;
-    }
+section{
+  padding:100px 0;
+}
 
-    .card:hover {
-      transform: translateY(-8px);
-    }
+h2{
+  color:var(--accent);
+  margin-bottom:40px;
+}
 
-    footer {
-      text-align: center;
-      padding: 40px 0;
-      color: var(--muted);
-      border-top: 1px solid #334155;
-    }
-  </style>
+.grid{
+  display:grid;
+  gap:25px;
+}
+
+@media(min-width:900px){
+  .grid{grid-template-columns:repeat(3,1fr);}
+}
+
+.card{
+  background:var(--card);
+  padding:25px;
+  border-radius:14px;
+  transition:.3s;
+  border:1px solid rgba(255,255,255,.05);
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  border:1px solid var(--accent);
+}
+
+footer{
+  padding:60px 0;
+  text-align:center;
+  color:var(--muted);
+  border-top:1px solid rgba(255,255,255,.08);
+}
+</style>
 </head>
+
 <body>
+
+<header>
+<div class="container">
+  <nav>
+    <strong>Ximena Garrido</strong>
+    <div>
+      <a href="#sobre">Sobre mí</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </nav>
+</div>
+</header>
 
 <div class="container">
 
-  <header>
-    <div><strong>Ximena Garrido</strong></div>
-    <nav>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-  </header>
+<section class="hero">
+  <h1>Backend Developer</h1>
+  <p>
+    Especializada en Python, Django y PostgreSQL.
+    Diseño aplicaciones web con arquitectura clara,
+    modelado relacional sólido y buenas prácticas.
+  </p>
+  <a href="#proyectos" class="btn">Ver proyectos</a>
+</section>
 
-  <section class="hero">
-    <h1>Backend Developer</h1>
-    <p>
-      Especializada en Python, Django y PostgreSQL.
-      Construyo aplicaciones web con arquitectura sólida,
-      modelado relacional y buenas prácticas.
-    </p>
-    <a href="#proyectos" class="btn">Ver proyectos</a>
-  </section>
+<section id="sobre">
+  <h2>Sobre mí</h2>
+  <p>
+    Me enfoco en el desarrollo backend utilizando Django y PostgreSQL,
+    aplicando buenas prácticas como separación por apps,
+    uso de migraciones versionadas y control de acceso.
+  </p>
+</section>
 
-  <section id="proyectos">
-    <h2>Proyectos Destacados</h2>
+<section id="proyectos">
+  <h2>Proyectos Destacados</h2>
+  <div class="grid">
 
     <div class="card">
       <h3>🌬️ Kau del Viento</h3>
-      <p>E-Commerce desarrollado con Django y PostgreSQL.</p>
-      <a href="https://github.com/xgarridoig-jpg/kau-del-viento" target="_blank">Ver repositorio</a>
+      <p>E-Commerce con Django y PostgreSQL.</p>
+      <a href="https://github.com/xgarridoig-jpg/kau-del-viento" target="_blank">Repositorio</a>
     </div>
 
     <div class="card">
       <h3>📚 Biblioca Yagan</h3>
-      <p>Sistema de gestión de biblioteca con CRUD completo.</p>
-      <a href="https://github.com/xgarridoig-jpg/biblioca-yagan" target="_blank">Ver repositorio</a>
+      <p>Sistema CRUD de biblioteca.</p>
+      <a href="https://github.com/xgarridoig-jpg/biblioca-yagan" target="_blank">Repositorio</a>
     </div>
 
     <div class="card">
       <h3>🐚 Chilwe</h3>
-      <p>Blog cultural con modelado relacional en PostgreSQL.</p>
-      <a href="https://github.com/xgarridoig-jpg/chilwe" target="_blank">Ver repositorio</a>
+      <p>Blog cultural con modelado relacional.</p>
+      <a href="https://github.com/xgarridoig-jpg/chilwe" target="_blank">Repositorio</a>
     </div>
 
-  </section>
+  </div>
+</section>
 
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <p>Email: TU_CORREO_AQUI</p>
-    <p>GitHub: <a href="https://github.com/xgarridoig-jpg" target="_blank">xgarridoig-jpg</a></p>
-  </section>
+<section id="proceso">
+  <h2>Proceso y Buenas Prácticas</h2>
+  <ul>
+    <li>Versionado con Git y commits progresivos</li>
+    <li>Organización modular por apps</li>
+    <li>Uso de PostgreSQL como base de datos</li>
+    <li>Aplicación del ORM de Django</li>
+    <li>Diseño visual coherente y jerárquico</li>
+  </ul>
+</section>
 
-  <footer>
-    © 2026 Ximena Garrido
-  </footer>
+<section id="contacto">
+  <h2>Contacto</h2>
+  <p>Email: TU_CORREO_AQUI</p>
+  <p>GitHub: <a href="https://github.com/xgarridoig-jpg" target="_blank">xgarridoig-jpg</a></p>
+</section>
+
+<footer>
+© 2026 Ximena Garrido
+</footer>
 
 </div>
 
