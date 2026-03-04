@@ -36,13 +36,13 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
         }
 
-        /* ── NAV (Corregido: Fondo sólido al bajar) ── */
+        /* ── NAV ── */
         nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000; 
             padding: 0 52px; height: var(--nav-h);
             display: flex; justify-content: space-between; align-items: center;
-            background: rgba(8, 8, 8, 0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(8, 8, 8, 0.95);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(245, 240, 232, 0.05);
         }
         .nav-logo {
@@ -57,7 +57,7 @@
         .nav-links a:hover { color: var(--c3); }
         .nav-links .cta {
             color: var(--gold); border: 1px solid rgba(201, 169, 110, .35);
-            padding: 9px 22px; border-radius: 100px; transition: background .3s, color .3s;
+            padding: 9px 22px; border-radius: 100px; transition: all .3s;
         }
         .nav-links .cta:hover { background: var(--gold); color: var(--c0); }
 
@@ -89,7 +89,6 @@
             line-height: .88; font-weight: 400; letter-spacing: -4px; color: var(--c3);
         }
         .hero h1 em { font-style: italic; color: var(--c5); }
-        .hero h1 .gold { color: var(--gold); }
 
         .hero-sub {
             margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; max-width: 900px;
@@ -101,9 +100,6 @@
         .hero-kv:last-child { border-bottom: none; }
         .hero-kv-k { font-size: .6rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--c5); margin-bottom: 4px; }
         .hero-kv-v { font-family: 'Instrument Serif', serif; font-size: 1rem; font-style: italic; color: var(--c3); }
-
-        /* ── SECTION WRAPPER ── */
-        section { padding: 120px 52px; position: relative; z-index: 10; }
 
         /* ── WORK ── */
         .work-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; }
@@ -117,12 +113,10 @@
             padding: 36px 0; border-bottom: 1px solid rgba(245,240,232,.06);
             text-decoration: none; color: inherit; position: relative; transition: padding-left .5s cubic-bezier(.16,1,.3,1);
         }
-        .project-row::before { content:''; position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--gold); transition: width .5s; }
-        .project-row:hover { padding-left: 24px; }
-        .project-row:hover::before { width: 4px; }
-
+        .project-row:hover { padding-left: 24px; background: rgba(201,169,110,.02); }
         .proj-num { font-family: 'Instrument Serif', serif; font-size: 1.4rem; font-style: italic; color: rgba(201,169,110,.35); transition: color .3s; }
         .project-row:hover .proj-num { color: var(--gold); }
+        .proj-info { display: flex; flex-direction: column; gap: 6px; }
         .proj-name { font-family: 'Instrument Serif', serif; font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 400; letter-spacing: -1px; color: var(--c3); transition: color .3s; }
         .project-row:hover .proj-name { color: var(--gold); }
         .proj-desc { font-size: .85rem; color: var(--c5); font-weight: 400; max-width: 480px; line-height: 1.6; }
@@ -135,38 +129,52 @@
         .about { background: var(--c1); border-radius: 40px; margin: 0 24px; padding: 100px 80px; display: grid; grid-template-columns: 1fr 1.4fr; gap: 100px; align-items: start; }
         .about-label { font-size: .6rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 32px; display: block; }
         .about-left h2 { font-family: 'Instrument Serif', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 400; line-height: 1.1; letter-spacing: -1.5px; color: var(--c3); margin-bottom: 32px; }
-        .about-left p { font-size: .95rem; color: var(--c5); line-height: 1.85; }
+        .about-left p { font-size: .95rem; color: var(--c5); line-height: 1.85; font-weight: 400; }
+        .about-left p+p { margin-top: 16px; }
         
         .stack-list { display: flex; flex-direction: column; }
         .stack-item { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(245,240,232,.07); }
         .stack-name { font-family: 'Instrument Serif', serif; font-size: 1.15rem; font-style: italic; color: var(--c3); }
         .stack-role { font-size: .6rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--c5); }
 
-        /* ── STATS ── */
         .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(245,240,232,.05); margin-top: 60px; border-radius: 16px; overflow: hidden; }
         .stat { background: var(--c2); padding: 40px 36px; text-align: center; }
         .stat-n { font-family: 'Instrument Serif', serif; font-size: 3.5rem; color: var(--c3); line-height: 1; margin-bottom: 8px; }
         .stat-l { font-size: .62rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--c5); }
 
         /* ── FOOTER ── */
-        footer { background: var(--c0); padding: 0 52px 60px; }
+        footer { background: var(--c0); padding: 120px 52px 60px; }
         .footer-inner { border-top: 1px solid rgba(245,240,232,.08); padding-top: 100px; }
+        .footer-h { font-family: 'Instrument Serif', serif; font-size: clamp(3rem, 7vw, 6rem); line-height: 1; font-weight: 400; letter-spacing: -2px; margin-bottom: 60px; }
+        .footer-h em { font-style: italic; color: var(--c5); }
+        .gold { color: var(--gold); }
+        .footer-actions { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; margin-bottom: 100px; }
+        .footer-email { font-family: 'Instrument Serif', serif; font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--c3); text-decoration: none; border-bottom: 1px solid rgba(245,240,232,.2); transition: border-color .3s; }
+        .footer-email:hover { border-color: var(--gold); }
+        .btn-main { background: var(--gold); color: var(--c0); padding: 18px 40px; border-radius: 100px; text-decoration: none; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; transition: transform .3s; }
+        .btn-main:hover { transform: scale(1.05); }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 40px; border-top: 1px solid rgba(245,240,232,.05); }
+        .footer-socials { display: flex; gap: 24px; }
+        .s-link { color: var(--c5); text-decoration: none; font-size: .7rem; text-transform: uppercase; letter-spacing: 2px; transition: color .3s; }
+        .s-link:hover { color: var(--gold); }
+        .footer-copy { font-size: .65rem; color: var(--c5); letter-spacing: 1px; }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 900px) {
             nav { padding: 0 24px; }
-            .hero, section { padding-left: 24px; padding-right: 24px; }
+            .hero, section, footer { padding-left: 24px; padding-right: 24px; }
             .hero-sub, .about { grid-template-columns: 1fr; gap: 50px; }
             .hero-sub-right { border-left: none; padding-left: 0; border-top: 1px solid rgba(245,240,232,0.1); padding-top: 32px; }
             .project-row { grid-template-columns: 40px 1fr; gap: 20px; }
             .proj-right { display: none; }
+            .footer-actions { gap: 30px; }
         }
         @media (max-width: 600px) {
             body { cursor: auto; }
-            #cur-d, #cur-r { display: none; }
-            .stats { grid-template-columns: 1fr; }
-            .about { padding: 60px 24px; }
+            #cur-d, #cur-r, .hero-tag { display: none; }
             .nav-links .cta { display: none; }
+            .stats { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 30px; align-items: flex-start; }
         }
 
         .reveal { opacity: 0; transform: translateY(30px); transition: all .8s cubic-bezier(.16,1,.3,1); }
@@ -215,56 +223,61 @@
     </div>
 </section>
 
-<section id="work">
-    <div class="work-header reveal">
-        <h2>Trabajos <em>seleccionados</em></h2>
-        <div class="work-count">(04)</div>
-    </div>
-    <div class="project-list">
-        <a href="#" class="project-row reveal">
-            <div class="proj-num">01</div>
-            <div class="proj-info">
-                <div class="proj-name">Kau del Viento</div>
-                <div class="proj-desc">E-commerce optimizado para alto rendimiento transaccional.</div>
-            </div>
-            <div class="proj-right">
-                <span class="proj-tag">Django · SQL</span>
-                <div class="proj-arrow">→</div>
-            </div>
-        </a>
-        <a href="#" class="project-row reveal">
-            <div class="proj-num">02</div>
-            <div class="proj-info">
-                <div class="proj-name">Biblioteca Yagán</div>
-                <div class="proj-desc">Sistema CRUD de gestión cultural con modelado relacional avanzado.</div>
-            </div>
-            <div class="proj-right">
-                <span class="proj-tag">Database</span>
-                <div class="proj-arrow">→</div>
-            </div>
-        </a>
-        <a href="#" class="project-row reveal">
-            <div class="proj-num">03</div>
-            <div class="proj-info">
-                <div class="proj-name">Chilwe Blog</div>
-                <div class="proj-desc">Plataforma de contenido dinámico con API RESTful.</div>
-            </div>
-            <div class="proj-right">
-                <span class="proj-tag">REST API</span>
-                <div class="proj-arrow">→</div>
-            </div>
-        </a>
-        <div class="project-row collab reveal">
-            <div class="proj-num">04</div>
-            <div class="proj-info">
-                <div class="proj-name">Próximos Sistemas</div>
-                <div class="proj-desc">Buscando construir infraestructuras que perduren.</div>
-            </div>
-            <div class="proj-right">
-                <span class="proj-tag" style="color:var(--ice); border-color:var(--ice)">Colab</span>
-            </div>
-        </div>
-    </div>
+<section id="work" style="padding-top:160px;">
+  <div class="work-header reveal">
+    <h2>Trabajos <em>seleccionados</em></h2>
+    <span class="work-count">03 proyectos</span>
+  </div>
+
+  <div class="project-list">
+    <a href="https://github.com/xgarridoig-jpg/kau-del-viento" class="project-row reveal" target="_blank" rel="noopener" style="transition-delay:.05s">
+      <span class="proj-num">01</span>
+      <div class="proj-info">
+        <span class="proj-name">Kau del Viento</span>
+        <span class="proj-desc">E-commerce inspirado en el refugio austral. Arquitectura Django con PostgreSQL, optimizada para alto rendimiento transaccional y flujos de compra robustos.</span>
+      </div>
+      <div class="proj-right">
+        <span class="proj-tag">Python · Django</span>
+        <div class="proj-arrow">→</div>
+      </div>
+    </a>
+
+    <a href="https://github.com/xgarridoig-jpg/biblioteca-yagan" class="project-row reveal" target="_blank" rel="noopener" style="transition-delay:.1s">
+      <span class="proj-num">02</span>
+      <div class="proj-info">
+        <span class="proj-name">Biblioteca Yagán</span>
+        <span class="proj-desc">Sistema CRUD de gestión cultural con herencia de la nación canoera. Modelado relacional avanzado y lógica de negocio clara, construido para perdurar.</span>
+      </div>
+      <div class="proj-right">
+        <span class="proj-tag">Logic · Database</span>
+        <div class="proj-arrow">→</div>
+      </div>
+    </a>
+
+    <a href="https://github.com/xgarridoig-jpg/chilwe" class="project-row reveal" target="_blank" rel="noopener" style="transition-delay:.15s">
+      <span class="proj-num">03</span>
+      <div class="proj-info">
+        <span class="proj-name">Chilwe Blog</span>
+        <span class="proj-desc">Plataforma de contenido dinámico con modelado relacional sólido en Django y PostgreSQL. Arquitectura modular con separación clara de capas y uso consistente del ORM.</span>
+      </div>
+      <div class="proj-right">
+        <span class="proj-tag">Django · ORM</span>
+        <div class="proj-arrow">→</div>
+      </div>
+    </a>
+
+    <a href="mailto:xgarridoiglesias@icloud.com" class="project-row collab reveal" style="transition-delay:.2s">
+      <span class="proj-num" style="color:rgba(142,184,200,.35)">04</span>
+      <div class="proj-info">
+        <span class="proj-name" style="color:var(--ice)">Tu próximo sistema</span>
+        <span class="proj-desc">Las mejores arquitecturas nacen de la colaboración. Buscando construir infraestructuras que perduren en el tiempo desde el fin del mundo.</span>
+      </div>
+      <div class="proj-right">
+        <span class="proj-tag" style="border-color:rgba(142,184,200,.2);color:var(--ice)">Colaborar</span>
+        <div class="proj-arrow" style="border-color:rgba(142,184,200,.2);color:var(--ice)">→</div>
+      </div>
+    </a>
+  </div>
 </section>
 
 <section id="about">
@@ -272,7 +285,8 @@
         <div class="about-left">
             <span class="about-label">Bio</span>
             <h2>Escribo código que <em>respira calma</em> y estructura.</h2>
-            <p>Como las capas de un glaciar, el backend debe ser sólido y transparente. Creo en sistemas que los equipos puedan entender, escalar y mantener sin fricciones.</p>
+            <p>Como las capas de un glaciar, el backend debe ser sólido y transparente. Mi proceso combina la técnica moderna con la paciencia artesana del sur: cada decisión de arquitectura es deliberada, cada abstracción tiene su razón de ser.</p>
+            <p>Creo en sistemas que los equipos puedan entender, escalar y mantener sin fricciones. El código es comunicación antes que instrucción.</p>
             <div class="stats">
                 <div class="stat"><div class="stat-n">3+</div><div class="stat-l">Proyectos</div></div>
                 <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Clean Code</div></div>
@@ -285,16 +299,31 @@
                 <div class="stack-item"><span class="stack-name">Python</span><span class="stack-role">Principal</span></div>
                 <div class="stack-item"><span class="stack-name">Django / DRF</span><span class="stack-role">Framework</span></div>
                 <div class="stack-item"><span class="stack-name">PostgreSQL</span><span class="stack-role">Base de datos</span></div>
-                <div class="stack-item"><span class="stack-name">Docker</span><span class="stack-role">Infraestructura</span></div>
+                <div class="stack-item"><span class="stack-name">Git / CI-CD</span><span class="stack-role">Workflow</span></div>
             </div>
         </div>
     </div>
 </section>
 
 <footer>
-    <div class="footer-inner">
-        <p style="text-align: center; color: var(--c5); font-size: .7rem; letter-spacing: 2px;">XIMENA GARRIDO · 2026 · MAGALLANES</p>
+  <div class="footer-inner reveal">
+    <h2 class="footer-h">
+      ¿Construimos algo<br>desde el <em>fin</em><br>del <span class="gold">mundo?</span>
+    </h2>
+    <div class="footer-actions">
+      <a href="mailto:xgarridoiglesias@icloud.com" class="footer-email">xgarridoiglesias@icloud.com</a>
+      <a href="mailto:xgarridoiglesias@icloud.com" class="btn-main">Iniciar conversación</a>
     </div>
+
+    <div class="footer-bottom">
+      <div class="footer-socials">
+        <a href="mailto:xgarridoiglesias@icloud.com" class="s-link">Email</a>
+        <a href="https://www.linkedin.com/in/ximena-garrido-iglesias-b1a105397/" class="s-link" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/xgarridoig-jpg" class="s-link" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <span class="footer-copy">Ximena Garrido · Magallanes · 2026</span>
+    </div>
+  </div>
 </footer>
 
 <script>
