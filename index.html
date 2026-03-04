@@ -235,6 +235,152 @@ footer{background:var(--c0);padding:0 52px 60px;}
   .work-header{flex-direction:column;align-items:flex-start;gap:12px;}
   .footer-bottom{flex-direction:column;align-items:flex-start;}
 }
+  /* ==============================
+   RESPONSIVE REAL – MOBILE FIX
+================================= */
+
+@media (max-width: 900px){
+
+  nav{
+    padding:18px 20px;
+  }
+
+  .hero{
+    padding:120px 20px 60px;
+  }
+
+  .hero h1{
+    font-size:clamp(2.8rem, 10vw, 3.8rem);
+    letter-spacing:-1px;
+  }
+
+  .hero-tag{
+    top:90px;
+    right:20px;
+  }
+
+  .hero-sub{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .hero-sub-right{
+    border-left:none;
+    padding-left:0;
+    border-top:1px solid rgba(245,240,232,.08);
+    padding-top:20px;
+  }
+
+  section{
+    padding:80px 20px;
+  }
+
+  .project-row{
+    grid-template-columns:48px 1fr;
+    gap:18px;
+    padding:28px 0;
+  }
+
+  .proj-name{
+    font-size:1.6rem;
+  }
+
+  .proj-desc{
+    font-size:.85rem;
+  }
+
+  .proj-right{
+    display:none;
+  }
+
+  .about{
+    margin:0 12px;
+    padding:60px 24px;
+    grid-template-columns:1fr;
+    gap:50px;
+    border-radius:24px;
+  }
+
+  .about-left h2{
+    font-size:2rem;
+  }
+
+  .stat-n{
+    font-size:2.4rem;
+  }
+
+  footer{
+    padding:0 20px 50px;
+  }
+
+  .footer-top{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .footer-h{
+    font-size:2.6rem;
+    letter-spacing:-1px;
+  }
+
+  .footer-actions{
+    align-items:flex-start;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:20px;
+  }
+
+}
+
+/* Extra small devices */
+
+@media (max-width: 480px){
+
+  body{
+    cursor:auto;
+  }
+
+  #cur-d,
+  #cur-r{
+    display:none;
+  }
+
+  nav{
+    padding:14px 16px;
+  }
+
+  .nav-links{
+    gap:12px;
+  }
+
+  .nav-links a{
+    font-size:.55rem;
+  }
+
+  .hero{
+    padding:100px 16px 40px;
+  }
+
+  .hero h1{
+    font-size:2.4rem;
+  }
+
+  section{
+    padding:60px 16px;
+  }
+
+  .about{
+    padding:40px 18px;
+  }
+
+  .footer-h{
+    font-size:2.2rem;
+  }
+
+}
 </style>
 </head>
 <body>
