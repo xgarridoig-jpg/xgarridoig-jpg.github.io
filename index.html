@@ -12,7 +12,6 @@
   --c0:#080808;--c1:#0e0e0e;--c2:#161616;
   --c3:#f5f0e8;--c4:#e8e0d0;--c5:#a09080;
   --gold:#c9a96e;--ice:#8eb8c8;--rust:#c8624a;
-  --r:32px;
   --nav-h: 80px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -47,8 +46,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 52px;height:var(-
 .nav-links .cta:hover{background:var(--gold);color:var(--c0);}
 
 /* ── HERO ── */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;
-  padding:0 52px 72px;position:relative;overflow:hidden;}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center; /* Centrado vertical para asegurar visibilidad */
+  padding:120px 52px 72px;position:relative;overflow:hidden;}
 .hero-bg{position:absolute;inset:0;z-index:0;
   background:radial-gradient(ellipse 80% 60% at 20% 80%,rgba(142,184,200,.07) 0%,transparent 60%),
              radial-gradient(ellipse 60% 80% at 85% 20%,rgba(201,169,110,.05) 0%,transparent 55%),
@@ -62,21 +61,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 52px;height:var(-
 
 .hero-content{position:relative;z-index:10;}
 
-.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:20px;
-  opacity:0;animation:slideR .8s cubic-bezier(.16,1,.3,1) .2s forwards;}
+/* SE ELIMINARON LAS ANIMACIONES DE ENTRADA PARA GARANTIZAR VISIBILIDAD */
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:20px; opacity: 1;}
 .hero-eyebrow-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;box-shadow: 0 0 12px var(--gold);}
 .hero-eyebrow span{font-size:.65rem;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);}
 
 .hero h1{font-family:'Instrument Serif',serif;
-  font-size:clamp(4.2rem,9vw,7.5rem);line-height:.85;font-weight:400;
+  font-size:clamp(3.8rem,9vw,7.5rem);line-height:.85;font-weight:400;
   letter-spacing:-4px;color:var(--c3);
-  opacity:0;animation:slideU 1s cubic-bezier(.16,1,.3,1) .35s forwards;}
+  opacity: 1; margin-bottom: 20px;}
 .hero h1 em{font-style:italic;color:var(--c5);}
-.hero h1 .gold{color:var(--gold); display: block; font-size: clamp(1.8rem, 4vw, 3rem); letter-spacing: -1px; margin-top: 15px;}
+.hero h1 .gold{color:var(--gold); display: block; font-size: clamp(1.6rem, 4vw, 3rem); letter-spacing: -1px; margin-top: 15px;}
 
-.hero-sub{margin-top:52px;display:grid;grid-template-columns:1.2fr 1fr;gap:60px;max-width:1000px;
+.hero-sub{margin-top:32px;display:grid;grid-template-columns:1.2fr 1fr;gap:60px;max-width:1000px;
   border-top:1px solid rgba(245,240,232,.08);padding-top:40px;
-  opacity:0;animation:slideU .8s cubic-bezier(.16,1,.3,1) .7s forwards;}
+  opacity: 1;}
 .hero-sub p{font-size:1.05rem;font-weight:400;color:var(--c5);line-height:1.75;max-width:460px;}
 .hero-sub-right{display:flex;flex-direction:column;gap:0;border-left:1px solid rgba(245,240,232,.08);padding-left:48px;}
 .hero-kv{padding:14px 0;border-bottom:1px solid rgba(245,240,232,.06);}
@@ -86,7 +85,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 52px;height:var(-
 
 .hero-scroll{position:absolute;bottom:72px;right:52px;z-index:10;
   display:flex;flex-direction:column;align-items:center;gap:8px;
-  opacity:0;animation:fadeIn .8s ease 1.2s forwards;}
+  opacity: 1;}
 .hero-scroll span{font-size:.58rem;letter-spacing:3px;text-transform:uppercase;color:var(--c5);writing-mode:vertical-rl;}
 .scroll-line{width:1px;height:60px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollDrop 2s ease-in-out 1.5s infinite;}
 
@@ -174,46 +173,97 @@ footer{background:var(--c0);padding:0 52px 60px; position: relative; z-index: 10
 .btn-main:hover{background:#e0b97e;transform:scale(1.04);}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;
   padding-top:40px;border-top:1px solid rgba(245,240,232,.06);}
-.footer-socials{display:flex;gap:10px;}
-.s-link{font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  color:rgba(245,240,232,.35);text-decoration:none;padding:10px 20px;
-  border:1px solid rgba(245,240,232,.1);border-radius:100px;transition:all .3s;}
-.s-link:hover{border-color:rgba(201,169,110,.5);color:var(--gold);}
+.footer-socials{display:flex;gap:16px;}
+
+/* ICONOS ESTILOS */
+.s-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(245,240,232,.1);
+  color: rgba(245,240,232,.4);
+  transition: all .3s;
+}
+.s-icon svg { width: 20px; height: 20px; fill: currentColor; }
+.s-icon:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(201,169,110,0.05);
+  transform: translateY(-3px);
+}
+
 .footer-copy{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.15);}
 
+/* ── SCROLL TOP BTN ── */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 900;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(8,8,8,0.85);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(201,169,110,0.3);
+  color: var(--gold);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(.16,1,.3,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+#scrollTopBtn.visible {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+#scrollTopBtn:hover {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--c0);
+  transform: translateY(-2px);
+}
+#scrollTopBtn svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
 /* ── ANIMATIONS ── */
-@keyframes slideU{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
-@keyframes slideR{from{opacity:0;transform:translateX(-20px);}to{opacity:1;transform:translateX(0);}}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+/* Mantenemos solo el scroll drop para la linea y reveal para el resto de secciones */
 @keyframes scrollDrop{0%,100%{opacity:1;transform:scaleY(1);}50%{opacity:.3;transform:scaleY(.6);}}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);}
 .reveal.vis{opacity:1;transform:none;}
 
-/* ── RESPONSIVE ── */
+/* ── RESPONSIVE MEJORADO ── */
 @media(max-width:900px){
   nav{padding:0 24px;}
   .nav-links .cta{display:none;}
   .nav-links{gap:20px;}
-  .hero{padding:0 24px 60px;}
+  .hero{padding:100px 24px 60px;} /* Ajuste de padding */
   .hero h1{letter-spacing:-2px;}
   .hero-sub{grid-template-columns:1fr; gap:40px;}
   .hero-sub-right{border-left:none;padding-left:0;border-top:1px solid rgba(245,240,232,.08);padding-top:24px;}
   .hero-tag{display: none;}
   section{padding:80px 24px;}
-  .project-row{grid-template-columns:48px 1fr;gap:20px;}
+  .project-row{grid-template-columns:1fr; gap:16px; align-items: start;}
+  .proj-num{font-size: 1rem; margin-bottom: 8px;}
   .proj-right{display:none;}
-  .about{margin:0 12px;padding:60px 32px;grid-template-columns:1fr;gap:60px;border-radius:24px;}
+  .about{margin:0 0px; padding:60px 24px; width: 100%; border-radius: 0; grid-template-columns:1fr; gap:50px;}
   footer{padding:0 24px 48px;}
   .footer-top{grid-template-columns:1fr;gap:40px;}
   .footer-actions{align-items:flex-start;}
   .footer-h{letter-spacing:-2px;}
+  #scrollTopBtn { bottom: 24px; right: 24px; width: 44px; height: 44px; }
 }
 @media(max-width:600px){
   body{cursor:auto;}
   #cur-d,#cur-r{display:none;}
   .work-header{flex-direction:column;align-items:flex-start;gap:12px;}
-  .footer-bottom{flex-direction:column;align-items:flex-start;}
+  .footer-bottom{flex-direction:column-reverse; align-items:flex-start; gap: 30px;}
   .stats{grid-template-columns: 1fr;}
+  .footer-email { font-size: 0.9rem; }
 }
 </style>
 </head>
@@ -221,6 +271,11 @@ footer{background:var(--c0);padding:0 52px 60px; position: relative; z-index: 10
 
 <div id="cur-d"></div>
 <div id="cur-r"></div>
+
+<!-- BOTÓN SUBIR -->
+<button id="scrollTopBtn" aria-label="Volver arriba">
+  <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
 
 <nav>
   <a href="#" class="nav-logo">xg. — patagonia</a>
@@ -389,9 +444,18 @@ footer{background:var(--c0);padding:0 52px 60px; position: relative; z-index: 10
 
     <div class="footer-bottom">
       <div class="footer-socials">
-        <a href="mailto:xgarridoiglesias@icloud.com" class="s-link">Email</a>
-        <a href="https://www.linkedin.com/in/xpgarrido/" class="s-link" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/xgarridoig-jpg" class="s-link" target="_blank" rel="noopener">GitHub</a>
+        <!-- ICONO EMAIL -->
+        <a href="mailto:xgarridoiglesias@icloud.com" class="s-icon" aria-label="Correo">
+           <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-11.174l4.623 5.462zm12.008 9.071h-13.326l3.869-4.779 2.794 3.299 2.794-3.299 3.869 4.779zm-12.008-9.071l4.623-5.462v11.174l-4.623-5.712zm14.405-2.112l-6.028 7.118-6.028-7.118-5.347-6.317h22.75l-5.347 6.317z"/></svg>
+        </a>
+        <!-- ICONO LINKEDIN -->
+        <a href="https://www.linkedin.com/in/xpgarrido/" class="s-icon" target="_blank" rel="noopener" aria-label="LinkedIn">
+           <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+        <!-- ICONO GITHUB -->
+        <a href="https://github.com/xgarridoig-jpg" class="s-icon" target="_blank" rel="noopener" aria-label="GitHub">
+           <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
       </div>
       <span class="footer-copy">Ximena Garrido · Magallanes · 2026</span>
     </div>
@@ -414,6 +478,19 @@ const io=new IntersectionObserver(entries=>entries.forEach(e=>{
   if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}
 }),{threshold:.08});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// SCROLL TO TOP BTN LOGIC
+const scrollBtn = document.getElementById('scrollTopBtn');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 500) {
+    scrollBtn.classList.add('visible');
+  } else {
+    scrollBtn.classList.remove('visible');
+  }
+}, {passive:true});
+scrollBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
 // NAV background on scroll
 const nav=document.querySelector('nav');
