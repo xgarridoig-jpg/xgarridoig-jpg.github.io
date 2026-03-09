@@ -98,52 +98,147 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--copper);outline-off
 .mnav-meta{margin-top:3rem;font-family:var(--fm);font-size:.6rem;letter-spacing:.15em;color:var(--ink3);text-transform:uppercase}
 
 /* ─── HERO ─── */
-<style>
-/* Nuevos estilos específicos para el Hero con fondo */
-.hero--patagonia {
-  position: relative;
-  background: var(--void);
-  overflow: hidden;
+.hero{min-height:100svh;padding-top:var(--navH);display:grid;align-items:center;position:relative;overflow:hidden}
+
+/* Patagonia background image */
+.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:brightness(.14) saturate(.3) contrast(1.15)}
+/* fade edges so text stays legible */
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(to right,var(--base) 0%,rgba(12,14,18,.82) 30%,rgba(12,14,18,.55) 65%,var(--base) 100%),
+    linear-gradient(to bottom,var(--base) 0%,transparent 18%,transparent 82%,var(--base) 100%);
+}
+/* grain over landscape */
+.hero-bg::before{
+  content:'';position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.048;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size:220px;
+}
+/* subtle copper glow top-right */
+.hero::before{content:'';position:absolute;top:-10%;right:-5%;width:50%;height:80%;background:radial-gradient(ellipse at 70% 30%,rgba(196,134,92,.06) 0%,transparent 65%);pointer-events:none;z-index:1}
+
+.hero-grid{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;
+  align-items:center;padding:clamp(3rem,7vw,6rem) 0;
+}
+.hero-pre{display:flex;align-items:center;gap:.75rem;margin-bottom:1.75rem}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:var(--sage);animation:pulse 2.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.55)}}
+.hero-name{font-family:var(--fd);font-size:clamp(3rem,7vw,5.5rem);font-weight:300;line-height:1.05;letter-spacing:-.025em;margin-bottom:.5rem}
+.hero-name em{font-style:italic;color:var(--copper)}
+.hero-role{font-family:var(--fm);font-size:clamp(.68rem,1.3vw,.8rem);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin-bottom:2rem}
+.hero-bio{font-size:clamp(.9375rem,1.5vw,1.05rem);font-weight:300;color:var(--ink2);max-width:42ch;line-height:1.82;margin-bottom:2.5rem}
+.hero-acts{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:3.5rem;border:1px solid var(--edge);border-radius:3px;overflow:hidden;background:var(--edge);gap:1px}
+.hero-stat{background:rgba(19,23,32,.72);backdrop-filter:blur(8px);padding:1.2rem 1rem;text-align:center}
+.hero-stat-n{font-family:var(--fd);font-size:1.875rem;font-weight:300;color:var(--ink);line-height:1}
+.hero-stat-l{font-family:var(--fm);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-top:.3rem}
+
+/* Hero photo */
+.hero-visual{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
 }
 
-.hero-bg-landscape {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
+/* Outer decorative ring */
+.hero-frame-wrap{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.hero-bg-landscape img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 40%;
-  filter: brightness(0.22) saturate(0.4) contrast(1.1); /* Estilo similar a trayectoria */
+/* Subtle arc line behind circle */
+.hero-frame-wrap::before{
+  content:'';
+  position:absolute;
+  inset:-18px;
+  border-radius:50%;
+  border:1px solid rgba(196,134,92,.18);
+  pointer-events:none;
+}
+/* Second thinner outer ring */
+.hero-frame-wrap::after{
+  content:'';
+  position:absolute;
+  inset:-32px;
+  border-radius:50%;
+  border:1px solid rgba(196,134,92,.07);
+  pointer-events:none;
 }
 
-/* Desvanecimiento para que el fondo no corte abruptamente */
-.hero-bg-landscape::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, transparent 60%, var(--base) 100%);
+.hero-frame{
+  position:relative;
+  width:185px;
+  aspect-ratio:1/1;
+  border-radius:50%;
+  padding:5px;
+  background:linear-gradient(135deg,rgba(196,134,92,.22) 0%,rgba(30,36,51,.6) 50%,rgba(196,134,92,.1) 100%);
+  box-shadow:
+    0 0 0 1px rgba(196,134,92,.25),
+    0 16px 48px rgba(0,0,0,.45),
+    0 4px 12px rgba(0,0,0,.3);
 }
 
-/* Ajuste de la foto para mayor armonía con el texto */
-.hero-visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  transform: translateY(-10px); /* Ligero ajuste de altura */
+.hero-photo{
+  width:100%;
+  height:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  object-position:center 8%;
+  border-radius:50%;
+  display:block;
+  filter:brightness(.92) contrast(1.05) saturate(.78);
+  /* Oculta el alt text si la imagen no carga */
+  overflow:hidden;
+  color:transparent;
+  font-size:0;
 }
 
-.hero-frame {
-  width: 210px; /* Tamaño más armónico */
-  aspect-ratio: 1/1;
-  border: 1px solid rgba(196, 134, 92, 0.3); /* Borde cobre sutil */
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(4px);
+.hero-overlay{
+  position:absolute;
+  inset:5px;
+  border-radius:50%;
+  background:linear-gradient(to bottom, rgba(255,255,255,.02), rgba(8,9,11,.2));
+  z-index:1;
+  pointer-events:none;
+}
+
+.hero-grain{
+  position:absolute;
+  inset:5px;
+  border-radius:50%;
+  z-index:2;
+  pointer-events:none;
+  opacity:.06;
+  mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size:180px;
+}
+
+/* Coordinate tag below photo */
+.hero-coords{
+  position:absolute;
+  bottom:-2rem;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:4;
+  font-family:var(--fm);
+  font-size:.54rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:rgba(196,134,92,.5);
+  white-space:nowrap;
+  padding:.28rem .65rem;
+  border:1px solid rgba(196,134,92,.14);
+  border-radius:2px;
+  background:rgba(12,14,18,.6);
+  backdrop-filter:blur(4px);
 }
 
 /* ─── ABOUT ─── */
@@ -218,7 +313,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--copper);outline-off
 .tl-tags{display:flex;gap:.35rem;flex-wrap:wrap}
 
 /* ─── STACK ─── */
-.stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--edge);border:1px solid var(--edge);border-radius:4px;overflow:hidden}
+.stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--edge);border:1px solid var(--edge);border-radius:4px;overflow:hidden}
 .scat{background:var(--card);padding:clamp(1.4rem,2.5vw,2rem);transition:background .2s;position:relative;overflow:hidden}
 .scat:hover{background:var(--raised)}
 /* Subtle stone texture */
@@ -290,14 +385,15 @@ footer{background:var(--void);border-top:1px solid var(--edge);padding-block:1.7
 .fu:nth-child(5){transition-delay:.4s}
 
 /* ─── RESPONSIVE ─── */
-@media(max-width:1024px){.stack-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:768px){
+@media(max-width:1024px){.stack-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:768px){
   .nav-links,.nav-cta{display:none}
   .burger{display:flex}
   .mnav{display:flex}
   .hero-grid{grid-template-columns:1fr}
-  .hero-visual{justify-content:center;order:-1}
-  .hero-frame{width:140px}
+  .hero-visual{justify-content:center;order:-1;padding-bottom:2.5rem}
+  .hero-frame{width:150px}
+  .hero-frame-wrap::before{inset:-14px}
+  .hero-frame-wrap::after{inset:-26px}
   .about-grid{grid-template-columns:1fr}
   .proj-grid{grid-template-columns:1fr}
   .exp-grid{grid-template-columns:1fr}
@@ -328,7 +424,7 @@ footer{background:var(--void);border-top:1px solid var(--edge);padding-block:1.7
       <li><a href="#stack">Stack</a></li>
       <li><a href="#formacion">Formación</a></li>
     </ul>
-    <a href="mailto:xgarridoiglesias@icloud.com" class="nav-cta">Contacto →</a>
+    <a href="/cdn-cgi/l/email-protection#cdb5aaacbfbfa4a9a2a4aaa1a8bea4acbe8da4aea1a2b8a9e3aea2a0" class="nav-cta">Contacto →</a>
     <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mnav">
       <span></span><span></span><span></span>
     </button>
@@ -342,23 +438,22 @@ footer{background:var(--void);border-top:1px solid var(--edge);padding-block:1.7
   <a href="#trayectoria" class="ml">Trayectoria</a>
   <a href="#stack"       class="ml">Stack</a>
   <a href="#formacion"   class="ml">Formación</a>
-  <a href="mailto:xgarridoiglesias@icloud.com" class="ml">Contacto</a>
+  <a href="/cdn-cgi/l/email-protection#1b637c7a6969727f74727c777e68727a685b727877746e7f35787476" class="ml">Contacto</a>
   <p class="mnav-meta">38°44′S · 72°35′O — Temuco</p>
 </div>
 
 <main id="main">
 
 <!-- ══ HERO ══ -->
-<section class="hero hero--patagonia sec" aria-label="Presentación">
-  <div class="hero-bg-landscape" aria-hidden="true">
-    <img 
-      src="https://images.unsplash.com/photo-1519451241324-20b4ec2c4558?w=1800&q=80&fit=crop" 
-      alt="" 
+<section class="hero sec" aria-label="Presentación">
+  <!-- Patagonia background — Torres del Paine / Lagos del Sur -->
+  <div class="hero-bg" aria-hidden="true">
+    <img
+      src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1800&q=75&fit=crop&crop=center"
+      alt=""
       loading="eager"
     />
-    <div class="hero-grain" style="opacity: 0.04;"></div>
   </div>
-
   <div class="wrap">
     <div class="hero-grid">
       <div>
@@ -368,28 +463,36 @@ footer{background:var(--void);border-top:1px solid var(--edge);padding-block:1.7
         </div>
         <h1 class="hero-name fu">Ximena<br><em>Garrido</em></h1>
         <p class="hero-role fu">Python Backend Developer</p>
-        <p class="hero-bio fu">Ingeniera en Informática con más de 10 años en sistemas de datos. Construyo backend con Python y Django: código limpio, estructurado y con la solidez del sur.</p>
+        <p class="hero-bio fu">Ingeniera en Informática con más de 10 años en sistemas de datos y consultoría tecnológica. Construyo backend con Python y Django: código limpio, estructurado y orientado a resolver problemas reales.</p>
         <div class="hero-acts fu">
-          <a href="mailto:xgarridoiglesias@icloud.com" class="btn btn-c">Iniciar conversación</a>
+          <a href="/cdn-cgi/l/email-protection#0c746b6d7e7e656863656b60697f656d7f4c656f60637968226f6361" class="btn btn-c">
+            Iniciar conversación
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M1.5 6.5h10M8 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
           <a href="#proyectos" class="btn btn-o">Ver proyectos</a>
         </div>
-        
         <div class="hero-stats fu" role="list">
           <div class="hero-stat" role="listitem"><div class="hero-stat-n">10+</div><div class="hero-stat-l">Años</div></div>
-          <div class="hero-stat" role="listitem"><div class="hero-stat-n">3</div><div class="hero-stat-l">Proyectos</div></div>
-          <div class="hero-stat" role="listitem"><div class="hero-stat-n">Sur</div><div class="hero-stat-l">Perspectiva</div></div>
+          <div class="hero-stat" role="listitem"><div class="hero-stat-n">3</div><div class="hero-stat-l">Proyectos Django</div></div>
+          <div class="hero-stat" role="listitem"><div class="hero-stat-n">Sur</div><div class="hero-stat-l">De aquí</div></div>
         </div>
       </div>
-
-      <div class="hero-visual fu">
-        <div class="hero-frame">
-          <img
-            class="hero-photo"
-            src="foto-portafolio.jpeg"
-            alt="Ximena Garrido"
-            loading="eager"
-          />
-          <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-visual">
+        <div class="hero-frame-wrap">
+          <div class="hero-frame">
+            <!--
+              FOTO REAL: reemplaza el src de esta <img> por "foto-portafolio.jpg"
+              y sube ese archivo al mismo repositorio de GitHub Pages.
+            -->
+            <img
+              class="hero-photo"
+              src="foto-portafolio.jpeg"
+              alt="Ximena Garrido — Python Backend Developer, Temuco Chile"
+              loading="eager"
+            />
+            <div class="hero-overlay" aria-hidden="true"></div>
+            <div class="hero-grain"  aria-hidden="true"></div>
+          </div>
           <span class="hero-coords">38°44′S · 72°35′O</span>
         </div>
       </div>
@@ -479,7 +582,7 @@ footer{background:var(--void);border-top:1px solid var(--edge);padding-block:1.7
         <h3 class="pcard-title">Tu próximo sistema</h3>
         <p class="pcard-desc">Las mejores soluciones nacen de la conversación. Disponible para construir desde el sur — con criterio, código limpio y foco en el problema real.</p>
         <div class="pcard-tags"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">PostgreSQL</span></div>
-        <a href="mailto:xgarridoiglesias@icloud.com" class="pcard-link">Colaborar <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="/cdn-cgi/l/email-protection#225a454350504b464d4b454e47514b4351624b414e4d57460c414d4f" class="pcard-link">Colaborar <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </article>
     </div>
   </div>
@@ -601,7 +704,7 @@ footer{background:var(--void);border-top:1px solid var(--edge);padding-block:1.7
     <h2 class="cta-h" id="h-cta">¿Construimos algo desde el <em>sur?</em></h2>
     <p class="cta-sub">38°44′S · 72°35′O — Temuco, Chile</p>
     <div class="cta-acts">
-      <a href="mailto:xgarridoiglesias@icloud.com" class="btn btn-c">
+      <a href="/cdn-cgi/l/email-protection#28504f495a5a414c47414f444d5b41495b68414b44475d4c064b4745" class="btn btn-c">
         Iniciar conversación
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M1.5 6.5h10M8 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -610,7 +713,7 @@ footer{background:var(--void);border-top:1px solid var(--edge);padding-block:1.7
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1.5A5.5 5.5 0 0 0 5.3 12.2c.28.05.38-.12.38-.26v-.9c-1.5.32-1.82-.72-1.82-.72-.25-.62-.61-.79-.61-.79-.5-.34.04-.33.04-.33.55.04.84.57.84.57.49.83 1.28.6 1.6.45.05-.35.19-.6.34-.74-1.2-.14-2.45-.6-2.45-2.66 0-.59.21-1.07.55-1.45-.06-.14-.24-.69.05-1.43 0 0 .45-.14 1.47.55a5.1 5.1 0 0 1 2.68 0c1.02-.69 1.46-.55 1.46-.55.3.74.11 1.3.06 1.43.34.38.55.86.55 1.45 0 2.07-1.26 2.52-2.46 2.65.19.17.37.5.37.99v1.47c0 .14.1.31.38.26A5.5 5.5 0 0 0 7 1.5Z" fill="currentColor"/></svg>
       </a>
     </div>
-    <p class="cta-mail"><a href="mailto:xgarridoiglesias@icloud.com">xgarridoiglesias@icloud.com</a></p>
+    <p class="cta-mail"><a href="/cdn-cgi/l/email-protection#48302f293a3a212c27212f242d3b21293b08212b24273d2c662b2725"><span class="__cf_email__" data-cfemail="acd4cbcddedec5c8c3c5cbc0c9dfc5cddfecc5cfc0c3d9c882cfc3c1">[email&#160;protected]</span></a></p>
   </div>
 </section>
 
@@ -623,7 +726,7 @@ footer{background:var(--void);border-top:1px solid var(--edge);padding-block:1.7
       <span class="foot-brand">xg<b>.</b></span>
       <p class="foot-meta">Ximena Garrido · Temuco, Chile · 38°44′S · 72°35′O · 2026</p>
       <nav class="foot-links" aria-label="Links del footer">
-        <a href="mailto:xgarridoiglesias@icloud.com">Email</a>
+        <a href="/cdn-cgi/l/email-protection#e0988781929289848f89878c8593898193a089838c8f9584ce838f8d">Email</a>
         <a href="https://github.com/xgarridoig-jpg" target="_blank" rel="noopener noreferrer">GitHub</a>
         <!-- Reemplaza href="#" con la URL real de LinkedIn -->
         <a href="#" aria-label="LinkedIn próximamente">LinkedIn</a>
@@ -632,7 +735,7 @@ footer{background:var(--void);border-top:1px solid var(--edge);padding-block:1.7
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* Navbar scroll */
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('on',window.scrollY>30),{passive:true});
@@ -660,20 +763,4 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 });
 
 /* Fade-up IntersectionObserver */
-const fus=document.querySelectorAll('.fu');
-if('IntersectionObserver' in window){
-  const io=new IntersectionObserver(es=>{
-    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})
-  },{threshold:.1,rootMargin:'0px 0px -30px 0px'});
-  fus.forEach(el=>io.observe(el));
-}else{fus.forEach(el=>el.classList.add('on'))}
-
-/* Hero entrance */
-document.addEventListener('DOMContentLoaded',()=>{
-  document.querySelectorAll('.hero .fu').forEach((el,i)=>
-    setTimeout(()=>el.classList.add('on'),100+i*115)
-  );
-});
-</script>
-</body>
-</html>
+const fus=d
