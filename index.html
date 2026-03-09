@@ -100,7 +100,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--copper);outline-off
 /* ─── HERO ─── */
 .hero{min-height:100svh;padding-top:var(--navH);display:grid;align-items:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-15%;right:-5%;width:55%;height:85%;background:radial-gradient(ellipse at 70% 30%,rgba(196,134,92,.055) 0%,transparent 65%);pointer-events:none;z-index:0}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,5.5rem);align-items:center;padding-block:clamp(3.5rem,7vw,6rem)}
+.hero-grid{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;
+  align-items:center;padding:clamp(3rem,7vw,6rem) 0;
+}
 .hero-pre{display:flex;align-items:center;gap:.75rem;margin-bottom:1.75rem}
 .hero-dot{width:6px;height:6px;border-radius:50%;background:var(--sage);animation:pulse 2.8s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.55)}}
@@ -125,7 +129,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--copper);outline-off
 
 .hero-frame{
   position:relative;
-  width:210px;
+  width:185px;
   aspect-ratio:1/1;
   border-radius:50%;
   padding:8px;
@@ -144,7 +148,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--copper);outline-off
   height:100%;
   aspect-ratio:1/1;
   object-fit:cover;
-  object-position:center 12%;
+  object-position:center 8%;
   border-radius:50%;
   display:block;
   filter:brightness(.9) contrast(1.04) saturate(.82);
