@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ximena Garrido — Backend Developer</title>
+<title>Ximena Garrido — Python Backend Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-/* ── PATAGONIA v3: estructura v1 + paleta v2 ── */
+/* ── PATAGONIA v4 ── */
 :root{
   --void:   #05070a;
   --deep:   #0a0d12;
@@ -73,7 +73,7 @@ nav.scrolled{
   color:var(--fog);text-decoration:none;letter-spacing:.4px;opacity:.9;transition:opacity .3s;
 }
 .nav-logo:hover{opacity:1;}
-.nav-links{display:flex;gap:36px;align-items:center;}
+.nav-links{display:flex;gap:32px;align-items:center;}
 .nav-links a{
   color:var(--smoke);text-decoration:none;font-size:.68rem;font-weight:500;
   text-transform:uppercase;letter-spacing:2.5px;transition:color .3s;
@@ -253,6 +253,71 @@ section{padding:120px 52px;position:relative;z-index:1;}
 .p3:hover .proj-arrow{background:var(--gold);border-color:var(--gold);color:var(--void);transform:rotate(-45deg);}
 .collab:hover .proj-arrow{background:var(--lichen);border-color:var(--lichen);color:var(--void);transform:rotate(-45deg);}
 
+/* ── EXPERIENCE TIMELINE ── */
+#experience{padding:120px 52px;}
+
+.exp-header{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-bottom:64px;border-bottom:1px solid rgba(216,212,204,.07);padding-bottom:28px;
+}
+.exp-header h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.5rem,5vw,4.5rem);font-weight:400;line-height:1;letter-spacing:-2px;color:var(--fog);
+}
+.exp-header h2 em{font-style:italic;color:rgba(216,212,204,.25);}
+.exp-years{
+  font-family:'DM Mono',monospace;font-size:.62rem;
+  letter-spacing:2.5px;text-transform:uppercase;color:var(--smoke);
+}
+
+.timeline{
+  position:relative;
+  padding-left:40px;
+  border-left:1px solid rgba(196,160,106,.18);
+}
+.tl-item{
+  position:relative;
+  padding-bottom:56px;
+}
+.tl-item:last-child{padding-bottom:0;}
+.tl-item::before{
+  content:'';
+  position:absolute;
+  left:-45px;
+  top:7px;
+  width:10px;height:10px;
+  border-radius:50%;
+  background:var(--void);
+  border:1.5px solid var(--gold);
+  box-shadow:0 0 0 5px rgba(196,160,106,.07);
+}
+.tl-period{
+  font-family:'DM Mono',monospace;
+  font-size:.58rem;font-weight:300;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:8px;display:block;
+}
+.tl-company{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.3rem,2.5vw,1.9rem);font-weight:400;color:var(--fog);
+  line-height:1.1;margin-bottom:3px;
+}
+.tl-role{
+  font-family:'DM Mono',monospace;
+  font-size:.6rem;font-weight:300;letter-spacing:2px;text-transform:uppercase;
+  color:var(--smoke);margin-bottom:18px;display:block;
+}
+.tl-desc{
+  font-size:.9rem;color:var(--smoke);line-height:1.85;
+  max-width:580px;margin-bottom:20px;
+}
+.tl-tags{display:flex;flex-wrap:wrap;gap:8px;}
+.tl-tag{
+  font-family:'DM Mono',monospace;
+  font-size:.55rem;font-weight:300;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--smoke);border:1px solid rgba(216,212,204,.1);
+  padding:4px 12px;border-radius:100px;
+}
+
 /* ── TECH STACK SECTION ── */
 #stack{padding:0 52px 120px;}
 
@@ -321,15 +386,71 @@ section{padding:120px 52px;position:relative;z-index:1;}
 .stack-category:nth-child(5) .cat-item::before{background:var(--ember);}
 .stack-category:nth-child(6) .cat-item::before{background:var(--gold);}
 
-/* ── CERTIFICATIONS SECTION ── */
-#certs{padding:0 52px 120px;}
+/* Prior tech strip */
+.stack-prior{
+  margin-top:20px;
+  padding:24px 36px;
+  background:rgba(5,7,10,.5);
+  border:1px solid rgba(216,212,204,.05);
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  gap:40px;
+  flex-wrap:wrap;
+}
+.prior-label{
+  font-family:'DM Mono',monospace;
+  font-size:.55rem;font-weight:300;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(216,212,204,.25);white-space:nowrap;flex-shrink:0;
+}
+.prior-items{display:flex;flex-wrap:wrap;gap:8px;}
+.prior-item{
+  font-family:'DM Mono',monospace;
+  font-size:.6rem;font-weight:300;letter-spacing:1px;
+  color:rgba(216,212,204,.2);
+  border:1px solid rgba(216,212,204,.07);
+  padding:4px 14px;border-radius:100px;
+}
+
+/* ── FORMATION SECTION ── */
+#formation{padding:0 52px 120px;}
+
+.formation-academic{
+  display:flex;flex-direction:column;
+  border-top:1px solid rgba(216,212,204,.07);
+  margin-bottom:52px;
+}
+.acad-item{
+  display:flex;align-items:center;gap:40px;
+  padding:22px 0;
+  border-bottom:1px solid rgba(216,212,204,.05);
+}
+.acad-item:last-child{border-bottom:none;}
+.acad-year{
+  font-family:'DM Mono',monospace;
+  font-size:.58rem;font-weight:300;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold);width:90px;flex-shrink:0;
+}
+.acad-title{
+  font-family:'Playfair Display',serif;
+  font-size:.95rem;font-style:italic;color:var(--fog);margin-bottom:3px;
+}
+.acad-inst{
+  font-family:'DM Mono',monospace;
+  font-size:.58rem;font-weight:300;letter-spacing:.5px;color:var(--smoke);
+}
+.formation-sub{
+  font-family:'DM Mono',monospace;
+  font-size:.58rem;font-weight:300;letter-spacing:3px;text-transform:uppercase;
+  color:var(--smoke);display:block;margin-bottom:28px;
+}
 
 .certs-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
 }
 .cert-card{
   background:var(--stone);border:1px solid rgba(216,212,204,.06);border-radius:16px;
-  padding:32px 28px;position:relative;overflow:hidden;
+  padding:28px 24px;position:relative;overflow:hidden;
   transition:border-color .3s,background .3s,transform .3s var(--ease);
 }
 .cert-card:hover{
@@ -344,23 +465,23 @@ section{padding:120px 52px;position:relative;z-index:1;}
 }
 .cert-card:hover::after{opacity:1;}
 .cert-year{
-  font-family:'DM Mono',monospace;font-size:.58rem;font-weight:300;
+  font-family:'DM Mono',monospace;font-size:.55rem;font-weight:300;
   letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);
-  margin-bottom:14px;display:block;
+  margin-bottom:12px;display:block;
 }
 .cert-name{
-  font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;
+  font-family:'Playfair Display',serif;font-size:.9rem;font-style:italic;
   color:var(--fog);line-height:1.3;margin-bottom:10px;
 }
 .cert-issuer{
-  font-family:'DM Mono',monospace;font-size:.62rem;font-weight:300;
+  font-family:'DM Mono',monospace;font-size:.58rem;font-weight:300;
   letter-spacing:1px;color:var(--smoke);
 }
 
 /* ── ABOUT ── */
 .about{
-  background:var(--sky);border-radius:32px;margin:0 20px;padding:96px 80px;
-  display:grid;grid-template-columns:1fr 1.4fr;gap:100px;align-items:start;
+  background:var(--sky);border-radius:32px;margin:0 20px;padding:80px;
+  display:grid;grid-template-columns:200px 1fr 1.2fr;gap:60px;align-items:start;
   border:1px solid rgba(216,212,204,.05);
   position:relative;overflow:hidden;
 }
@@ -376,19 +497,43 @@ section{padding:120px 52px;position:relative;z-index:1;}
   background:radial-gradient(ellipse,rgba(196,160,106,.05) 0%,transparent 70%);
   pointer-events:none;
 }
+
+.about-photo-wrap{position:relative;z-index:2;}
+.about-photo{
+  width:100%;
+  aspect-ratio:3/4;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid rgba(216,212,204,.08);
+  position:relative;
+}
+.about-photo img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  filter:grayscale(18%) contrast(1.02);
+  transition:filter .5s ease;
+  display:block;
+}
+.about-photo:hover img{filter:grayscale(0%) contrast(1.04);}
+.about-photo::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent 55%,rgba(5,7,10,.28) 100%);
+  pointer-events:none;
+}
+
 .about-label{
   font-family:'DM Mono',monospace;font-size:.58rem;font-weight:300;
   letter-spacing:3px;text-transform:uppercase;
-  color:var(--ember);margin-bottom:32px;display:block;
+  color:var(--ember);margin-bottom:28px;display:block;
 }
 .about-left h2{
   font-family:'Playfair Display',serif;
-  font-size:clamp(2rem,4vw,3.5rem);font-weight:400;line-height:1.1;letter-spacing:-1.5px;
-  color:var(--fog);margin-bottom:32px;
+  font-size:clamp(1.6rem,2.8vw,2.5rem);font-weight:400;line-height:1.2;letter-spacing:-1px;
+  color:var(--fog);margin-bottom:28px;
 }
 .about-left h2 em{font-style:italic;color:rgba(216,212,204,.28);}
-.about-left p{font-size:.93rem;color:var(--smoke);line-height:1.85;font-weight:400;}
-.about-left p+p{margin-top:16px;}
+.about-left p{font-size:.9rem;color:var(--smoke);line-height:1.85;font-weight:400;}
+.about-left p+p{margin-top:14px;}
 
 .stack-title{
   font-family:'DM Mono',monospace;font-size:.58rem;font-weight:300;
@@ -401,31 +546,31 @@ section{padding:120px 52px;position:relative;z-index:1;}
   padding:18px 0;border-bottom:1px solid rgba(216,212,204,.06);
 }
 .stack-item:last-child{border-bottom:none;}
-.stack-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-style:italic;font-weight:300;color:var(--fog);}
+.stack-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;font-weight:300;color:var(--fog);}
 .stack-role{
   font-family:'DM Mono',monospace;font-size:.56rem;font-weight:300;
   letter-spacing:2px;text-transform:uppercase;color:var(--smoke);
 }
 .stack-bar{height:2px;background:rgba(216,212,204,.06);border-radius:2px;margin-top:6px;width:100px;position:relative;}
 .stack-fill{height:100%;border-radius:2px;}
-.stack-item:nth-child(1) .stack-fill{width:95%;background:linear-gradient(90deg,var(--gold),rgba(196,160,106,.2));}
-.stack-item:nth-child(2) .stack-fill{width:90%;background:linear-gradient(90deg,var(--glaciar),rgba(74,184,216,.2));}
-.stack-item:nth-child(3) .stack-fill{width:85%;background:linear-gradient(90deg,var(--andes),rgba(42,111,168,.2));}
+.stack-item:nth-child(1) .stack-fill{width:90%;background:linear-gradient(90deg,var(--gold),rgba(196,160,106,.2));}
+.stack-item:nth-child(2) .stack-fill{width:80%;background:linear-gradient(90deg,var(--glaciar),rgba(74,184,216,.2));}
+.stack-item:nth-child(3) .stack-fill{width:75%;background:linear-gradient(90deg,var(--andes),rgba(42,111,168,.2));}
 .stack-item:nth-child(4) .stack-fill{width:88%;background:linear-gradient(90deg,var(--lichen),rgba(138,184,120,.2));}
 
 .stats{
   display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-  background:rgba(216,212,204,.05);margin-top:60px;border-radius:16px;overflow:hidden;
+  background:rgba(216,212,204,.05);margin-top:48px;border-radius:16px;overflow:hidden;
 }
-.stat{background:rgba(10,13,18,.8);padding:40px 28px;text-align:center;transition:background .3s;}
+.stat{background:rgba(10,13,18,.8);padding:28px 16px;text-align:center;transition:background .3s;}
 .stat:hover{background:rgba(26,32,48,.9);}
 .stat-n{
-  font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;
-  color:var(--fog);line-height:1;margin-bottom:8px;
+  font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;
+  color:var(--fog);line-height:1;margin-bottom:6px;
 }
 .stat-l{
-  font-family:'DM Mono',monospace;font-size:.56rem;font-weight:300;
-  letter-spacing:2.5px;text-transform:uppercase;color:var(--smoke);
+  font-family:'DM Mono',monospace;font-size:.5rem;font-weight:300;
+  letter-spacing:2px;text-transform:uppercase;color:var(--smoke);
 }
 
 /* ── FOOTER ── */
@@ -493,6 +638,9 @@ footer{background:var(--void);padding:0 52px 60px;position:relative;z-index:1;}
 .reveal.vis{opacity:1;transform:none;}
 
 /* ── RESPONSIVE ── */
+@media(max-width:1200px){
+  .certs-grid{grid-template-columns:repeat(2,1fr);}
+}
 @media(max-width:900px){
   nav{padding:0 24px;}
   .nav-links .cta{display:none;}
@@ -504,12 +652,22 @@ footer{background:var(--void);padding:0 52px 60px;position:relative;z-index:1;}
   .hero-tag{display:none;}
   section{padding:80px 24px;}
   #stack{padding:0 24px 80px;}
-  #certs{padding:0 24px 80px;}
+  #experience{padding:80px 24px;}
+  #formation{padding:0 24px 80px;}
   .stack-grid{grid-template-columns:1fr 1fr;}
-  .certs-grid{grid-template-columns:1fr;}
+  .certs-grid{grid-template-columns:1fr 1fr;}
   .project-row{grid-template-columns:1fr;gap:16px;align-items:start;}
   .proj-right{display:none;}
-  .about{margin:0;padding:60px 24px;width:100%;border-radius:0;grid-template-columns:1fr;gap:50px;}
+  .about{
+    margin:0;padding:48px 24px;width:100%;border-radius:0;
+    grid-template-columns:1fr;gap:36px;
+  }
+  .about-photo-wrap{display:flex;justify-content:flex-start;}
+  .about-photo{width:140px;aspect-ratio:3/4;}
+  .timeline{padding-left:28px;}
+  .tl-item::before{left:-33px;}
+  .stack-prior{flex-direction:column;align-items:flex-start;gap:16px;}
+  .prior-label{white-space:normal;}
   footer{padding:0 24px 48px;}
   .footer-top{grid-template-columns:1fr;gap:40px;}
   .footer-actions{align-items:flex-start;}
@@ -519,10 +677,13 @@ footer{background:var(--void);padding:0 52px 60px;position:relative;z-index:1;}
   body{cursor:auto;}
   #cur-d,#cur-r{display:none;}
   .work-header{flex-direction:column;align-items:flex-start;gap:12px;}
-  .stats{grid-template-columns:1fr;}
+  .stats{grid-template-columns:repeat(3,1fr);}
   .stack-grid{grid-template-columns:1fr;}
   .certs-grid{grid-template-columns:1fr;}
   .footer-bottom{flex-direction:column-reverse;align-items:flex-start;gap:24px;}
+  .exp-header{flex-direction:column;align-items:flex-start;gap:12px;}
+  .acad-item{flex-direction:column;align-items:flex-start;gap:6px;}
+  .acad-year{width:auto;}
 }
 </style>
 </head>
@@ -537,12 +698,12 @@ footer{background:var(--void);padding:0 52px 60px;position:relative;z-index:1;}
 </button>
 
 <nav id="main-nav">
-  <a href="#" class="nav-logo">xg. — patagonia</a>
+  <a href="#" class="nav-logo">xg. — del sur</a>
   <div class="nav-links">
     <a href="#work">Proyectos</a>
+    <a href="#experience">Trayectoria</a>
     <a href="#stack">Stack</a>
-    <a href="#about">Bio</a>
-    <a href="mailto:xgarridoiglesias@icloud.com" class="cta">Contacto</a>
+    <a href="mailto:xgarridoiglesias@icloud.com" class="cta">Contacto →</a>
   </div>
 </nav>
 
@@ -561,8 +722,8 @@ footer{background:var(--void);padding:0 52px 60px;position:relative;z-index:1;}
   </svg>
 
   <div class="hero-tag">
-    <span>Origen: 53°09′S · 70°55′O</span>
-    <span class="coord">Patagonia chilena</span>
+    <span>38°44′S · 72°35′O</span>
+    <span class="coord">Temuco — La Araucanía</span>
   </div>
 
   <div class="hero-content">
@@ -574,19 +735,23 @@ footer{background:var(--void);padding:0 52px 60px;position:relative;z-index:1;}
     <h1>
       Ximena<br>
       <em>Garrido</em>
-      <span class="gold">Python / Django Backend Developer.</span>
+      <span class="gold">Python Backend Developer.</span>
     </h1>
 
     <div class="hero-sub">
-      <p>Originaria de la Patagonia chilena, desarrollo aplicaciones backend utilizando Python, Django y PostgreSQL, enfocándome en escribir código claro, mantenible y bien estructurado. Me interesa construir sistemas que puedan crecer de forma ordenada y ser fáciles de mantener.</p>
+      <p>Ingeniera en Informática con más de 10 años de experiencia en sistemas de datos y consultoría tecnológica. Hoy enfocada en el desarrollo backend con Python y Django: código estructurado, claro y orientado a resolver problemas reales.</p>
       <div class="hero-sub-right">
         <div class="hero-kv">
-          <div class="hero-kv-k">Stack principal</div>
+          <div class="hero-kv-k">Stack actual</div>
           <div class="hero-kv-v">Python · Django · PostgreSQL</div>
         </div>
         <div class="hero-kv">
-          <div class="hero-kv-k">Tecnologías</div>
-          <div class="hero-kv-v">Django ORM · Git</div>
+          <div class="hero-kv-k">Base técnica</div>
+          <div class="hero-kv-v">Oracle SQL · Git · Jira</div>
+        </div>
+        <div class="hero-kv">
+          <div class="hero-kv-k">Ubicación</div>
+          <div class="hero-kv-v">Temuco, Chile</div>
         </div>
       </div>
     </div>
@@ -610,7 +775,7 @@ footer{background:var(--void);padding:0 52px 60px;position:relative;z-index:1;}
       <span class="proj-num">01</span>
       <div class="proj-info">
         <span class="proj-name">Kau del Viento</span>
-        <span class="proj-desc">Aplicación web de comercio desarrollada con Django y PostgreSQL que implementa gestión de productos y estructura básica de catálogo utilizando el ORM de Django.</span>
+        <span class="proj-desc">Aplicación web de comercio desarrollada con Django y PostgreSQL. Gestión de productos y catálogo mediante el ORM de Django.</span>
       </div>
       <div class="proj-right">
         <span class="proj-tag">Python · Django</span>
@@ -622,10 +787,10 @@ footer{background:var(--void);padding:0 52px 60px;position:relative;z-index:1;}
       <span class="proj-num">02</span>
       <div class="proj-info">
         <span class="proj-name">Biblioteca Yagán</span>
-        <span class="proj-desc">Aplicación Django orientada a la gestión de registros culturales, utilizando relaciones entre modelos y operaciones CRUD mediante el ORM de Django.</span>
+        <span class="proj-desc">Sistema de gestión de registros culturales con Django. Relaciones entre modelos y operaciones CRUD mediante el ORM.</span>
       </div>
       <div class="proj-right">
-        <span class="proj-tag">Logic · Database</span>
+        <span class="proj-tag">Django · ORM</span>
         <div class="proj-arrow">→</div>
       </div>
     </a>
@@ -634,7 +799,7 @@ footer{background:var(--void);padding:0 52px 60px;position:relative;z-index:1;}
       <span class="proj-num">03</span>
       <div class="proj-info">
         <span class="proj-name">Chilwe Blog</span>
-        <span class="proj-desc">Aplicación de blog desarrollada con Django que implementa gestión de autores y artículos utilizando relaciones entre modelos y consultas mediante el ORM.</span>
+        <span class="proj-desc">Plataforma de blog con Django para gestión de autores y artículos. Relaciones entre entidades y consultas mediante Django ORM.</span>
       </div>
       <div class="proj-right">
         <span class="proj-tag">Django · ORM</span>
@@ -646,7 +811,7 @@ footer{background:var(--void);padding:0 52px 60px;position:relative;z-index:1;}
       <span class="proj-num" style="color:rgba(138,184,120,.2)">04</span>
       <div class="proj-info">
         <span class="proj-name" style="color:var(--lichen)">Tu próximo sistema</span>
-        <span class="proj-desc">Las mejores arquitecturas nacen de la colaboración. Buscando construir infraestructuras que perduren en el tiempo desde el fin del mundo.</span>
+        <span class="proj-desc">Las mejores soluciones nacen de la conversación. Disponible para construir desde el sur.</span>
       </div>
       <div class="proj-right">
         <span class="proj-tag" style="border-color:rgba(138,184,120,.2);color:var(--lichen)">Colaborar</span>
@@ -656,92 +821,184 @@ footer{background:var(--void);padding:0 52px 60px;position:relative;z-index:1;}
   </div>
 </section>
 
+<!-- ── EXPERIENCE ── -->
+<section id="experience">
+  <div class="exp-header reveal">
+    <h2>Trayectoria <em>profesional</em></h2>
+    <span class="exp-years">10 años en sistemas</span>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item reveal" style="transition-delay:.05s">
+      <span class="tl-period">Jun 2022 — Mar 2025</span>
+      <div class="tl-company">NTT DATA · Telefónica</div>
+      <span class="tl-role">Analista Senior · Big Data &amp; Sistemas</span>
+      <p class="tl-desc">Resolución de incidencias críticas y monitoreo de sistemas de Big Data para Telefónica España. Mantenimiento de bases de datos y flujos de información a gran escala en entornos de alta disponibilidad bajo metodologías ágiles.</p>
+      <div class="tl-tags">
+        <span class="tl-tag">Oracle SQL</span>
+        <span class="tl-tag">Apache NiFi</span>
+        <span class="tl-tag">Hadoop</span>
+        <span class="tl-tag">HDFS</span>
+        <span class="tl-tag">Scrum</span>
+        <span class="tl-tag">CMMI</span>
+      </div>
+    </div>
+
+    <div class="tl-item reveal" style="transition-delay:.1s">
+      <span class="tl-period">Nov 2021 — Abr 2022</span>
+      <div class="tl-company">NTT DATA · Bankinter</div>
+      <span class="tl-role">Analista Senior · Sector Financiero</span>
+      <p class="tl-desc">Optimización de procesos de carga de datos en sistema antifraude para Bankinter España. Participación en migración y verificación de bases de datos bancarias con Oracle PL/SQL.</p>
+      <div class="tl-tags">
+        <span class="tl-tag">Oracle SQL</span>
+        <span class="tl-tag">PL/SQL</span>
+        <span class="tl-tag">Filezilla</span>
+        <span class="tl-tag">Scrum</span>
+        <span class="tl-tag">CMMI</span>
+      </div>
+    </div>
+
+    <div class="tl-item reveal" style="transition-delay:.15s">
+      <span class="tl-period">Ene 2014 — Nov 2021</span>
+      <div class="tl-company">Everis (NTT Data) · Naturgy</div>
+      <span class="tl-role">Developer · Sector Energético</span>
+      <p class="tl-desc">Soporte y mantenimiento de sistemas internos para Naturgy España. Optimización de procedimientos en Oracle PL/SQL, coordinación del equipo técnico local en Temuco y gestión de incidencias en entornos de producción.</p>
+      <div class="tl-tags">
+        <span class="tl-tag">Oracle SQL</span>
+        <span class="tl-tag">PL/SQL</span>
+        <span class="tl-tag">Jira</span>
+        <span class="tl-tag">Remedy</span>
+        <span class="tl-tag">Kanban</span>
+        <span class="tl-tag">CMMI</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── TECNOLOGÍAS Y HERRAMIENTAS ── -->
-<section id="stack">
+<section id="stack" style="padding-top:0;">
   <div class="section-label-line reveal">
     <span>Tecnologías &amp; Herramientas</span>
   </div>
 
- <div class="stack-grid reveal">
+  <div class="stack-grid reveal">
 
-  <!-- Lenguajes -->
-  <div class="stack-category">
-    <span class="cat-icon">Lenguajes</span>
-    <div class="cat-title">Lenguajes</div>
-    <div class="cat-items">
-      <span class="cat-item">Python</span>
-      <span class="cat-item">SQL</span>
-      <span class="cat-item">PL/SQL</span>
+    <div class="stack-category">
+      <span class="cat-icon">Lenguajes</span>
+      <div class="cat-title">Lenguajes</div>
+      <div class="cat-items">
+        <span class="cat-item">Python</span>
+        <span class="cat-item">SQL</span>
+        <span class="cat-item">PL/SQL</span>
+      </div>
     </div>
+
+    <div class="stack-category">
+      <span class="cat-icon">Framework</span>
+      <div class="cat-title">Framework</div>
+      <div class="cat-items">
+        <span class="cat-item">Django</span>
+      </div>
+    </div>
+
+    <div class="stack-category">
+      <span class="cat-icon">Bases de datos</span>
+      <div class="cat-title">Bases de datos</div>
+      <div class="cat-items">
+        <span class="cat-item">PostgreSQL</span>
+        <span class="cat-item">Oracle Database</span>
+      </div>
+    </div>
+
+    <div class="stack-category">
+      <span class="cat-icon">Backend</span>
+      <div class="cat-title">Backend</div>
+      <div class="cat-items">
+        <span class="cat-item">Django ORM</span>
+        <span class="cat-item">Modelado relacional</span>
+        <span class="cat-item">CRUD</span>
+      </div>
+    </div>
+
+    <div class="stack-category">
+      <span class="cat-icon">Herramientas</span>
+      <div class="cat-title">Herramientas</div>
+      <div class="cat-items">
+        <span class="cat-item">Git</span>
+        <span class="cat-item">Jira</span>
+        <span class="cat-item">Confluence</span>
+        <span class="cat-item">Power BI</span>
+      </div>
+    </div>
+
+    <div class="stack-category">
+      <span class="cat-icon">Metodologías</span>
+      <div class="cat-title">Metodologías</div>
+      <div class="cat-items">
+        <span class="cat-item">Scrum</span>
+        <span class="cat-item">Kanban</span>
+        <span class="cat-item">CMMI</span>
+      </div>
+    </div>
+
   </div>
 
-  <!-- Framework -->
-  <div class="stack-category">
-    <span class="cat-icon">Framework</span>
-    <div class="cat-title">Framework</div>
-    <div class="cat-items">
-      <span class="cat-item">Django</span>
+  <div class="stack-prior reveal">
+    <span class="prior-label">Entorno técnico previo — consultoría Big Data</span>
+    <div class="prior-items">
+      <span class="prior-item">Apache NiFi</span>
+      <span class="prior-item">Hadoop</span>
+      <span class="prior-item">HDFS</span>
+      <span class="prior-item">SQL Developer</span>
+      <span class="prior-item">TOAD</span>
+      <span class="prior-item">Remedy</span>
+      <span class="prior-item">Filezilla</span>
     </div>
   </div>
-
-  <!-- Bases de Datos -->
-  <div class="stack-category">
-    <span class="cat-icon">Bases de datos</span>
-    <div class="cat-title">Bases de datos</div>
-    <div class="cat-items">
-      <span class="cat-item">PostgreSQL</span>
-      <span class="cat-item">Oracle Database</span>
-    </div>
-  </div>
-
-  <!-- Backend -->
-  <div class="stack-category">
-    <span class="cat-icon">Backend</span>
-    <div class="cat-title">Backend</div>
-    <div class="cat-items">
-      <span class="cat-item">Django ORM</span>
-      <span class="cat-item">Modelado relacional</span>
-      <span class="cat-item">CRUD applications</span>
-    </div>
-  </div>
-
-  <!-- Herramientas -->
-  <div class="stack-category">
-    <span class="cat-icon">Herramientas</span>
-    <div class="cat-title">Herramientas</div>
-    <div class="cat-items">
-      <span class="cat-item">Git</span>
-      <span class="cat-item">Jira</span>
-      <span class="cat-item">Confluence</span>
-      <span class="cat-item">Power BI</span>
-    </div>
-  </div>
-
-  <!-- Metodologías -->
-  <div class="stack-category">
-    <span class="cat-icon">Metodologías</span>
-    <div class="cat-title">Metodologías</div>
-    <div class="cat-items">
-      <span class="cat-item">Scrum</span>
-      <span class="cat-item">Kanban</span>
-      <span class="cat-item">CMMI</span>
-    </div>
-  </div>
-
-</div>
 </section>
 
-<!-- ── CERTIFICACIONES ── -->
-<section id="certs" style="padding-top:0;">
+<!-- ── FORMACIÓN ── -->
+<section id="formation" style="padding-top:0;">
   <div class="section-label-line reveal">
-    <span>Certificaciones</span>
+    <span>Formación</span>
   </div>
 
+  <span class="formation-sub reveal">Académica</span>
+  <div class="formation-academic reveal">
+    <div class="acad-item">
+      <span class="acad-year">2016</span>
+      <div>
+        <div class="acad-title">Ingeniería en Informática</div>
+        <div class="acad-inst">Universidad Tecnológica de Chile INACAP</div>
+      </div>
+    </div>
+    <div class="acad-item">
+      <span class="acad-year">2013</span>
+      <div>
+        <div class="acad-title">Técnico Analista Programador</div>
+        <div class="acad-inst">INACAP</div>
+      </div>
+    </div>
+    <div class="acad-item">
+      <span class="acad-year">2004–2008</span>
+      <div>
+        <div class="acad-title">Estudios en Derecho <span style="font-family:'DM Mono',monospace;font-size:.7em;color:var(--smoke);font-style:normal;">(egresada)</span></div>
+        <div class="acad-inst">Universidad Católica de Temuco</div>
+      </div>
+    </div>
+  </div>
+
+  <span class="formation-sub reveal">Certificaciones &amp; Cursos</span>
   <div class="certs-grid reveal">
     <div class="cert-card">
       <span class="cert-year">2025</span>
       <div class="cert-name">Diplomado: Diseño y Gestión Ágil de Proyectos</div>
       <div class="cert-issuer">Fundación Telefónica Movistar · 100 hrs</div>
+    </div>
+    <div class="cert-card">
+      <span class="cert-year">2025</span>
+      <div class="cert-name">Power BI: Decisiones Basadas en Datos</div>
+      <div class="cert-issuer">Banco Santander · Santander Open Academy · 8 hrs</div>
     </div>
     <div class="cert-card">
       <span class="cert-year">2022</span>
@@ -759,16 +1016,23 @@ footer{background:var(--void);padding:0 52px 60px;position:relative;z-index:1;}
 <!-- ── ABOUT ── -->
 <section id="about" style="padding:0 0 120px;">
   <div class="about reveal">
+
+    <div class="about-photo-wrap">
+      <div class="about-photo">
+        <img src="foto%20portafolio.jpeg" alt="Ximena Garrido" loading="lazy">
+      </div>
+    </div>
+
     <div class="about-left">
       <span class="about-label">Sobre mí</span>
-      <h2>Código que <em>respira calma</em> y estructura.</h2>
-      <p>Como las capas de un glaciar, el backend debe ser sólido y transparente. Mi proceso combina la técnica moderna con la paciencia artesana del sur: cada decisión de arquitectura es deliberada, cada abstracción tiene su razón de ser.</p>
-      <p>Creo en sistemas que los equipos puedan entender, escalar y mantener sin fricciones. El código es comunicación antes que instrucción.</p>
+      <h2>Más de una <em>década</em> trabajando con datos.<br>Hoy, código Python.</h2>
+      <p>Soy Ingeniera en Informática oriunda de Temuco. Trabajé más de 10 años en consultoría tecnológica para empresas del sector energético, financiero y de telecomunicaciones —siempre del lado de los sistemas y los datos.</p>
+      <p>En 2025 decidí enfocar ese bagaje hacia el desarrollo backend con Python. No es un cambio brusco: es llevar lo que sé sobre bases de datos, entornos ágiles y sistemas en producción hacia un rol donde puedo construir.</p>
 
       <div class="stats">
-        <div class="stat"><div class="stat-n">3+</div><div class="stat-l">Proyectos activos</div></div>
-        <div class="stat"><div class="stat-n">Python</div><div class="stat-l">Stack principal</div></div>
-        <div class="stat"><div class="stat-n">∞</div><div class="stat-l">Km de patagonia</div></div>
+        <div class="stat"><div class="stat-n">10+</div><div class="stat-l">Años en sistemas</div></div>
+        <div class="stat"><div class="stat-n">3</div><div class="stat-l">Proyectos Django</div></div>
+        <div class="stat"><div class="stat-n">Sur</div><div class="stat-l">De aquí</div></div>
       </div>
     </div>
 
@@ -780,7 +1044,7 @@ footer{background:var(--void);padding:0 52px 60px;position:relative;z-index:1;}
           <span class="stack-role">Principal</span>
         </div>
         <div class="stack-item">
-          <div style="flex-grow:1;"><div class="stack-name">Django / DRF</div><div class="stack-bar"><div class="stack-fill"></div></div></div>
+          <div style="flex-grow:1;"><div class="stack-name">Django</div><div class="stack-bar"><div class="stack-fill"></div></div></div>
           <span class="stack-role">Framework</span>
         </div>
         <div class="stack-item">
@@ -788,11 +1052,12 @@ footer{background:var(--void);padding:0 52px 60px;position:relative;z-index:1;}
           <span class="stack-role">Base de datos</span>
         </div>
         <div class="stack-item">
-          <div style="flex-grow:1;"><div class="stack-name">Git</div><div class="stack-bar"><div class="stack-fill"></div></div></div>
-          <span class="stack-role">Flujo de trabajo</span>
+          <div style="flex-grow:1;"><div class="stack-name">Oracle SQL</div><div class="stack-bar"><div class="stack-fill"></div></div></div>
+          <span class="stack-role">Trayectoria</span>
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -801,7 +1066,7 @@ footer{background:var(--void);padding:0 52px 60px;position:relative;z-index:1;}
   <div class="footer-inner">
     <div class="footer-top reveal">
       <h2 class="footer-h">
-        ¿Construimos algo<br>desde el <em>fin</em><br>del <span class="gold">mundo?</span>
+        ¿Construimos algo<br>desde el <em>sur?</em>
       </h2>
       <div class="footer-actions">
         <a href="mailto:xgarridoiglesias@icloud.com" class="footer-email">xgarridoiglesias@icloud.com</a>
@@ -821,7 +1086,7 @@ footer{background:var(--void);padding:0 52px 60px;position:relative;z-index:1;}
           <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
         </a>
       </div>
-      <span class="footer-copy">Ximena Garrido · Magallanes · 2026</span>
+      <span class="footer-copy">Ximena Garrido · Temuco, Chile · 2026</span>
     </div>
   </div>
 </footer>
