@@ -98,95 +98,52 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--copper);outline-off
 .mnav-meta{margin-top:3rem;font-family:var(--fm);font-size:.6rem;letter-spacing:.15em;color:var(--ink3);text-transform:uppercase}
 
 /* ─── HERO ─── */
-.hero{min-height:100svh;padding-top:var(--navH);display:grid;align-items:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-15%;right:-5%;width:55%;height:85%;background:radial-gradient(ellipse at 70% 30%,rgba(196,134,92,.055) 0%,transparent 65%);pointer-events:none;z-index:0}
-.hero-grid{
-  position:relative;z-index:1;
-  display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;
-  align-items:center;padding:clamp(3rem,7vw,6rem) 0;
-}
-.hero-pre{display:flex;align-items:center;gap:.75rem;margin-bottom:1.75rem}
-.hero-dot{width:6px;height:6px;border-radius:50%;background:var(--sage);animation:pulse 2.8s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.55)}}
-.hero-name{font-family:var(--fd);font-size:clamp(3rem,7vw,5.5rem);font-weight:300;line-height:1.05;letter-spacing:-.025em;margin-bottom:.5rem}
-.hero-name em{font-style:italic;color:var(--copper)}
-.hero-role{font-family:var(--fm);font-size:clamp(.68rem,1.3vw,.8rem);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin-bottom:2rem}
-.hero-bio{font-size:clamp(.9375rem,1.5vw,1.05rem);font-weight:300;color:var(--ink2);max-width:42ch;line-height:1.82;margin-bottom:2.5rem}
-.hero-acts{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
-.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:3.5rem;border:1px solid var(--edge);border-radius:3px;overflow:hidden;background:var(--edge);gap:1px}
-.hero-stat{background:var(--raised);padding:1.2rem 1rem;text-align:center}
-.hero-stat-n{font-family:var(--fd);font-size:1.875rem;font-weight:300;color:var(--ink);line-height:1}
-.hero-stat-l{font-family:var(--fm);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-top:.3rem}
-
-/* Hero photo */
-.hero-visual{
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-  position:relative;
-  transform: translateY(-18px);
+<style>
+/* Nuevos estilos específicos para el Hero con fondo */
+.hero--patagonia {
+  position: relative;
+  background: var(--void);
+  overflow: hidden;
 }
 
-.hero-frame{
-  position:relative;
-  width:185px;
-  aspect-ratio:1/1;
-  border-radius:50%;
-  padding:8px;
-  background:rgba(255,255,255,.03);
-  border:1px solid var(--edge2);
-  box-shadow:0 10px 30px rgba(0,0,0,.18);
+.hero-bg-landscape {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
 }
 
-.hero-frame::before,
-.hero-frame::after{
-  content:none;
+.hero-bg-landscape img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  filter: brightness(0.22) saturate(0.4) contrast(1.1); /* Estilo similar a trayectoria */
 }
 
-.hero-photo{
-  width:100%;
-  height:100%;
-  aspect-ratio:1/1;
-  object-fit:cover;
-  object-position:center 8%;
-  border-radius:50%;
-  display:block;
-  filter:brightness(.9) contrast(1.04) saturate(.82);
+/* Desvanecimiento para que el fondo no corte abruptamente */
+.hero-bg-landscape::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, var(--base) 100%);
 }
 
-.hero-overlay{
-  position:absolute;
-  inset:8px;
-  border-radius:50%;
-  background:linear-gradient(to bottom, rgba(255,255,255,.03), rgba(8,9,11,.16));
-  z-index:1;
-  pointer-events:none;
+/* Ajuste de la foto para mayor armonía con el texto */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transform: translateY(-10px); /* Ligero ajuste de altura */
 }
 
-.hero-grain{
-  position:absolute;
-  inset:8px;
-  border-radius:50%;
-  z-index:2;
-  pointer-events:none;
-  opacity:.05;
-  mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)'/%3E%3C/svg%3E");
-  background-size:180px;
-}
-
-.hero-coords{
-  position:absolute;
-  bottom:-1.4rem;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:4;
-  font-family:var(--fm);
-  font-size:.56rem;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:rgba(232,213,160,.7);
-  white-space:nowrap;
+.hero-frame {
+  width: 210px; /* Tamaño más armónico */
+  aspect-ratio: 1/1;
+  border: 1px solid rgba(196, 134, 92, 0.3); /* Borde cobre sutil */
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(4px);
 }
 
 /* ─── ABOUT ─── */
@@ -392,7 +349,16 @@ footer{background:var(--void);border-top:1px solid var(--edge);padding-block:1.7
 <main id="main">
 
 <!-- ══ HERO ══ -->
-<section class="hero sec" aria-label="Presentación">
+<section class="hero hero--patagonia sec" aria-label="Presentación">
+  <div class="hero-bg-landscape" aria-hidden="true">
+    <img 
+      src="https://images.unsplash.com/photo-1519451241324-20b4ec2c4558?w=1800&q=80&fit=crop" 
+      alt="" 
+      loading="eager"
+    />
+    <div class="hero-grain" style="opacity: 0.04;"></div>
+  </div>
+
   <div class="wrap">
     <div class="hero-grid">
       <div>
@@ -402,34 +368,28 @@ footer{background:var(--void);border-top:1px solid var(--edge);padding-block:1.7
         </div>
         <h1 class="hero-name fu">Ximena<br><em>Garrido</em></h1>
         <p class="hero-role fu">Python Backend Developer</p>
-        <p class="hero-bio fu">Ingeniera en Informática con más de 10 años en sistemas de datos y consultoría tecnológica. Construyo backend con Python y Django: código limpio, estructurado y orientado a resolver problemas reales.</p>
+        <p class="hero-bio fu">Ingeniera en Informática con más de 10 años en sistemas de datos. Construyo backend con Python y Django: código limpio, estructurado y con la solidez del sur.</p>
         <div class="hero-acts fu">
-          <a href="mailto:xgarridoiglesias@icloud.com" class="btn btn-c">
-            Iniciar conversación
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M1.5 6.5h10M8 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
+          <a href="mailto:xgarridoiglesias@icloud.com" class="btn btn-c">Iniciar conversación</a>
           <a href="#proyectos" class="btn btn-o">Ver proyectos</a>
         </div>
+        
         <div class="hero-stats fu" role="list">
           <div class="hero-stat" role="listitem"><div class="hero-stat-n">10+</div><div class="hero-stat-l">Años</div></div>
-          <div class="hero-stat" role="listitem"><div class="hero-stat-n">3</div><div class="hero-stat-l">Proyectos Django</div></div>
-          <div class="hero-stat" role="listitem"><div class="hero-stat-n">Sur</div><div class="hero-stat-l">De aquí</div></div>
+          <div class="hero-stat" role="listitem"><div class="hero-stat-n">3</div><div class="hero-stat-l">Proyectos</div></div>
+          <div class="hero-stat" role="listitem"><div class="hero-stat-n">Sur</div><div class="hero-stat-l">Perspectiva</div></div>
         </div>
       </div>
-      <div class="hero-visual">
+
+      <div class="hero-visual fu">
         <div class="hero-frame">
-          <!--
-            FOTO REAL: reemplaza el src de esta <img> por "foto-portafolio.jpg"
-            y sube ese archivo al mismo repositorio de GitHub Pages.
-          -->
           <img
             class="hero-photo"
             src="foto-portafolio.jpeg"
-            alt="Ximena Garrido — Python Backend Developer, Temuco Chile"
+            alt="Ximena Garrido"
             loading="eager"
           />
           <div class="hero-overlay" aria-hidden="true"></div>
-          <div class="hero-grain"  aria-hidden="true"></div>
           <span class="hero-coords">38°44′S · 72°35′O</span>
         </div>
       </div>
